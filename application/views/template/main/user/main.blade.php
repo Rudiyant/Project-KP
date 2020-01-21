@@ -87,6 +87,22 @@
   <script src="{{base_url('assets/plugins/moment/moment.min.js')}}"></script>
   <script src="{{base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
   <script src="{{base_url('assets/dist/js/adminlte.js')}}"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(":radio.keterangan").click(function(){
+					$("#formKeperluan, #formLain").hide()
+					if($(this).val() == "Ada Keperluan"){
+						$("#formKeperluan").show();
+					}else if($(this).val() == "Lain-lain"){
+						$("#formLain").show();
+					}
+          else{
+            $("#formKeperluan, #formLain").hide();
+          }
+				});
+			});
+		</script>
   @yield('scripts-js')
 </body>
 
