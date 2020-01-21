@@ -35,7 +35,7 @@
       </form>
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <a href="index3.html" class="brand-link">
+      <a href="{{base_url('user')}}" class="brand-link">
         <img src="{{base_url('assets/dist/img/TeladanPutih.png')}}" alt="Teladan Logo" width="50" height="30" style="opacity: .8">
         <span class="brand-text font-weight-light">&ensp;Sekolah Teladan Yogyakarta</span>
       </a>
