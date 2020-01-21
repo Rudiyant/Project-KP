@@ -1,2 +1,2 @@
 # Project-KP
-Sistem Pengelolaan Perizinan Pegawai
+Sistem Pengelola Perizinan Karyawan
