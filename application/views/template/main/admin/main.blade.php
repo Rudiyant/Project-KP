@@ -87,6 +87,19 @@
   <script src="{{base_url('assets/plugins/moment/moment.min.js')}}"></script>
   <script src="{{base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
   <script src="{{base_url('assets/dist/js/adminlte.js')}}"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(":text.form-control").response(function(){
+					$("#formDirektur").hide()
+					if($(this).val() != NULL){
+						$("#formDirektur").show();
+					}else{
+						$("#formDirektur").hide();
+					}
+				});
+			});
+		</script>
   @yield('scripts-js')
 </body>
 

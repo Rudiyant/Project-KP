@@ -26,4 +26,16 @@ class Admin extends MY_Controller
 		$data['title'] = "Cetak Surat Balasan";
 		$this->blade->render('admin/balas', $data);
 	}
+
+	public function direktur()
+	{
+		$data['title'] = "Daftar Direktur";
+		$this->blade->render('admin/direktur', $data);
+	}
+
+	public function tambah()
+	{
+		$data['title'] = "Tambah Direktur";
+		$this->blade->render('admin/tambahDirektur', $data);
+	}
 }

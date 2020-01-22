@@ -20,7 +20,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="./index3.html" class="nav-link">
+            <a href="{{base_url('admin/direktur')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Kelola Data Direktur</p>
             </a>

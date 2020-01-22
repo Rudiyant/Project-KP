@@ -18,7 +18,7 @@
       </div>
       <div class="card-body">
         <p class="card-text">Pengelolaan data direktur, Anda bisa melihat, edit atau menambahkan data direktur baru.</p>
-        <a href="{{base_url('admin')}}" class="btn btn-primary">Lihat Data</a>
+        <a href="{{base_url('admin/direktur')}}" class="btn btn-primary">Lihat Data</a>
       </div>
     </div>
   </div>
