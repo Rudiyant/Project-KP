@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{base_url('assets/plugins/daterangepicker/daterangepicker.css')}}">
   <link rel="stylesheet" href="{{base_url('assets/plugins/summernote/summernote-bs4.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="shortcut icon" href="<?= base_url('assets/dist/img/Teladan.png');?>">
   @yield('scripts-css')
   <!-- PANGGIL UNTUK INJEK CSS KE TEMPAT INI -->
 </head>
@@ -42,7 +43,9 @@
             <img src="{{base_url('assets/dist/img/user.png')}}" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Nama Admin</a>
+            <?php if ($this->session->userdata('logged_in')) : ?>
+              <a href="#" class="d-block"><?= $this->session->userdata('nama'); ?></a>
+            <?php endif; ?>
           </div>
         </div>
         <nav class="mt-2">
@@ -57,7 +60,7 @@
         <div class="container-fluid">
           <div align="center">
             <br>
-              <h1 class="m-0 text-dark">{{$title}}</h1>
+            <h1 class="m-0 text-dark">{{$title}}</h1>
             <br>
           </div>
         </div>
@@ -85,18 +88,18 @@
   <script src="{{base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
   <script src="{{base_url('assets/dist/js/adminlte.js')}}"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				$(":text.form-control").response(function(){
-					$("#formDirektur").hide()
-					if($(this).val() != NULL){
-						$("#formDirektur").show();
-					}else{
-						$("#formDirektur").hide();
-					}
-				});
-			});
-		</script>
+  <script type="text/javascript">
+    $(function() {
+      $(":text.form-control").response(function() {
+        $("#formDirektur").hide()
+        if ($(this).val() != NULL) {
+          $("#formDirektur").show();
+        } else {
+          $("#formDirektur").hide();
+        }
+      });
+    });
+  </script>
   @yield('scripts-js')
 </body>
 

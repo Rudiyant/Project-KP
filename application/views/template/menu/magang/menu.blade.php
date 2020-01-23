@@ -30,7 +30,7 @@
                 <img src="{{base_url('assets/dist/img/logout.png')}}" class="img-circle elevation-2" alt="logout">
             </div>
             <div class="info">
-                <a href="{{base_url()}}" class="d-block">Logout</a>
+                <a href="{{base_url('start/logout')}}" class="d-block">Logout</a>
             </div>
         </div>
     </div>

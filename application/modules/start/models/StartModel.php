@@ -15,5 +15,17 @@ class StartModel extends CI_Model
         $query=$this->db->query("SELECT * FROM karyawan WHERE nik='$username' AND password='$password'");
         return $query;
     }
+
+    public function findByUsername($username) {
+        return $this->db->where('username', $username)->get('admin')->row_array();
+    }
+
+    public function findByNIY($username) {
+        return $this->db->where('niy', $username)->get('karyawan')->row_array();
+    }
+
+    public function findByNIK($username) {
+        return $this->db->where('nik', $username)->get('karyawan')->row_array();
+    }
 }
 ?>

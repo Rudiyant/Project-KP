@@ -56,6 +56,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
           </div>
           <br>
+          <div align="center">
+            <?= $this->session->flashdata('failed'); ?>
+            <?= $this->session->flashdata('logout'); ?>
+          </div>
         </form>
       </div>
     </div>
