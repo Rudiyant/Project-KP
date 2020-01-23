@@ -65,7 +65,7 @@
         <div class="container-fluid">
           <div align="center">
             <br>
-            <h1 class="m-0 text-dark">{{$title}}</h1>
+            <h1 class="m-0 text-dark">{{$title}}<?= $this->session->userdata('nama'); ?></h1>
             <br>
           </div>
         </div>

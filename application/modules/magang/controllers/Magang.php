@@ -6,7 +6,7 @@ class Magang extends MY_Controller
 
 	public function index()
 	{
-		$data['title'] = "Selamat Datang User";
+		$data['title'] = "Selamat Datang ";
 		$data['type'] = 'magang';
 		$this->blade->render('magang', $data);
     }

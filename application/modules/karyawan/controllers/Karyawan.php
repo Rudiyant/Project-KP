@@ -6,7 +6,7 @@ class Karyawan extends MY_Controller
 
 	public function index()
 	{
-		$data['title'] = "Selamat Datang User";
+		$data['title'] = "Selamat Datang ";
 		$data['type'] = 'karyawan';
 		$this->blade->render('karyawan', $data);
     }

@@ -27,6 +27,7 @@ class Start extends MY_Controller
 			$admin = $this->StartModel->findByUsername($username);
 			$data = array(
 				'nama'  => $admin['nama_admin'],
+				'id'	=> $admin['id_admin'],
 				'logged_in' => TRUE
 			);
 			$this->session->set_userdata($data);
@@ -38,6 +39,7 @@ class Start extends MY_Controller
 				$karyawan = $this->StartModel->findByNIY($username);
 				$data = array(
 					'nama'  => $karyawan['nama'],
+					'id'	=> $karyawan['id_karyawan'],
 					'logged_in' => TRUE
 				);
 				$this->session->set_userdata($data);
@@ -49,6 +51,7 @@ class Start extends MY_Controller
 					$karyawan = $this->StartModel->findByNIK($username);
 					$data = array(
 						'nama'  => $karyawan['nama'],
+						'id'	=> $karyawan['id_karyawan'],
 						'logged_in' => TRUE
 					);
 					$this->session->set_userdata($data);
@@ -66,7 +69,7 @@ class Start extends MY_Controller
 	public function logout()
 	{
 		$this->session->set_userdata('logged_in', 0);
-		$this->session->unset_userdata('nama');
+		$this->session->unset_userdata('nama', 'id');
 		$this->session->set_flashdata('logout', '<div style="color: green">Logout Berhasil.</div>');
 		redirect('start');
 	}
