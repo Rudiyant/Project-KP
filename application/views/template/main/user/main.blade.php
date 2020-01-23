@@ -27,15 +27,12 @@
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{base_url('user')}}" class="nav-link">Home</a>
-        </li>
       </ul>
       <form class="form-inline ml-3">
       </form>
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <a href="{{base_url('user')}}" class="brand-link">
+      <a href="#" class="brand-link">
         <img src="{{base_url('assets/dist/img/TeladanPutih.png')}}" alt="Teladan Logo" width="50" height="30" style="opacity: .8">
         <span class="brand-text font-weight-light">&ensp;Sekolah Teladan Yogyakarta</span>
       </a>
@@ -50,7 +47,12 @@
         </div>
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-flat" data-widget="treeview" role="menu" data-accordion="false">
-            @include('template/menu/user/menu')
+            @if($type == 'karyawan')
+            @include('template/menu/karyawan/menu')
+            @endif
+            @if($type == 'magang')
+            @include('template/menu/magang/menu');
+            @endif
           </ul>
         </nav>
       </div>
@@ -60,7 +62,7 @@
         <div class="container-fluid">
           <div align="center">
             <br>
-              <h1 class="m-0 text-dark">{{$title}}</h1>
+            <h1 class="m-0 text-dark">{{$title}}</h1>
             <br>
           </div>
         </div>
@@ -88,21 +90,20 @@
   <script src="{{base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
   <script src="{{base_url('assets/dist/js/adminlte.js')}}"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(function(){
-				$(":radio.keterangan").click(function(){
-					$("#formKeperluan, #formLain").hide()
-					if($(this).val() == "Ada Keperluan"){
-						$("#formKeperluan").show();
-					}else if($(this).val() == "Lain-lain"){
-						$("#formLain").show();
-					}
-          else{
-            $("#formKeperluan, #formLain").hide();
-          }
-				});
-			});
-		</script>
+  <script type="text/javascript">
+    $(function() {
+      $(":radio.keterangan").click(function() {
+        $("#formKeperluan, #formLain").hide()
+        if ($(this).val() == "Ada Keperluan") {
+          $("#formKeperluan").show();
+        } else if ($(this).val() == "Lain-lain") {
+          $("#formLain").show();
+        } else {
+          $("#formKeperluan, #formLain").hide();
+        }
+      });
+    });
+  </script>
   @yield('scripts-js')
 </body>
 

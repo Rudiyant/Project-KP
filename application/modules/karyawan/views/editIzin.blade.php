@@ -27,24 +27,16 @@
                     <hr>
                     <div class="form-group">
                         <label>Keterangan</label><br>
-                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Tidak Masuk"  class="keterangan">&ensp; Izin Tidak Masuk</p>
-                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Terlambat Masuk Kerja"  class="keterangan">&ensp; Izin Terlambat Masuk Kerja</p>
-                        <p class="radio-inline"><input type="radio" name="keterangan" value="Pulang Lebih Awal"  class="keterangan">&ensp; Pulang Lebih Awal</p>
-                        <p class="radio-inline"><input type="radio" name="keterangan" value="Meninggalkan Sekolah saat Jam Kerja"  class="keterangan">&ensp; Meninggalkan Sekolah saat Jam Kerja</p>
-                        <p class="radio-inline"><input type="radio" name="keterangan" value="Ada Keperluan" class="keterangan">&ensp; Ada Keperluan</p>
-                        <div style="display:none" id="formKeperluan">
-                            <textarea type="text" class="form-control" name="adaKeperluan" rows="2"></textarea>
-                            <br>
-                        </div>
-                        <p class="radio-inline"><input type="radio" name="keterangan" value="Lain-lain" class="keterangan">&ensp; Lain-lain</p>
-                        <div style="display:none" id="formLain">
-                            <textarea type="text" class="form-control" name="lain" rows="2"></textarea>
-                            <br>
-                        </div>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Tidak Masuk">&ensp; Izin Tidak Masuk</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Terlambat Masuk Kerja">&ensp; Izin Terlambat Masuk Kerja</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Pulang Lebih Awal">&ensp; Pulang Lebih Awal</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Meninggalkan Sekolah saat Jam Kerja">&ensp; Meninggalkan Sekolah saat Jam Kerja</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Tidak Masuk">&ensp; Ada Keperluan</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Tidak Masuk">&ensp; Lain-lain</p>
                     </div>
                     <div class="form-group">
                         <label>Alasan</label><br>
-                        <textarea type="text" class="form-control" name="alasan" rows="3">Alasan Saya..</textarea>
+                        <input type="text" class="form-control" id="inputAlasan" name="alasan" placeholder="Alasan saya...">
                     </div>
                     <div class="form-group">
                         <label>Lama Waktu Izin</label><br>
@@ -56,7 +48,7 @@
                     </div>
                     <br>
                     <div align="center">
-                        <a href="{{base_url('user/cetakIzin')}}" class="btn btn-primary">Selesai</a><br>
+                        <a href="{{base_url('karyawan/cetakIzin')}}" class="btn btn-primary">Selesai</a><br>
                     </div>
                 </div>
             </form>

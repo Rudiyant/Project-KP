@@ -23,42 +23,32 @@
                         <input type="text" class="form-control" id="inputDivisi" name="divisi" value="#" readonly>
                     </div>
                     <br>
-                    <small>Tujuan Surat</small>
+                    <small>Keterangan Izin</small>
                     <hr>
                     <div class="form-group">
-                        <label>Ditujukan Kepada</label><br>
-                        <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Operasional Yayasan Sinai Indonesia">&ensp; Direktur Operasional Yayasan Sinai Indonesia</p>
-                        <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Sekolah Teladan">&ensp; Direktur Sekolah Teladan</p>
+                        <label>Keterangan</label><br>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Tidak Masuk">&ensp; Izin Tidak Masuk</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Terlambat Masuk Kerja">&ensp; Izin Terlambat Masuk Kerja</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Pulang Lebih Awal">&ensp; Pulang Lebih Awal</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Meninggalkan Sekolah saat Jam Kerja">&ensp; Meninggalkan Sekolah saat Jam Kerja</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Tidak Masuk">&ensp; Ada Keperluan</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Tidak Masuk">&ensp; Lain-lain</p>
                     </div>
-                    <br>
-                    <small>Keterangan Cuti</small>
-                    <hr>
                     <div class="form-group">
                         <label>Alasan</label><br>
                         <input type="text" class="form-control" id="inputAlasan" name="alasan" placeholder="Alasan saya...">
                     </div>
                     <div class="form-group">
-                        <label>Tanggal Mulai Cuti</label><br>
-                        <input type="date" class="form-control" id="inputMulai" name="Mulai">
+                        <label>Lama Waktu Izin</label><br>
+                        <input type="text" class="form-control" id="inputLama" name="Lama" placeholder="07.00-10.00">
                     </div>
                     <div class="form-group">
-                        <label>Tanggal Selesai Cuti</label><br>
-                        <input type="date" class="form-control" id="inputSelesai" name="Selesai">
-                    </div>
-                    <div class="form-group">
-                        <label>Mulai Aktif Kembali</label><br>
-                        <div class="form-row">
-                            <div class="col-lg-4">
-                                <input type="text" class="form-control" id="inputHari" name="Hari" placeholder="Senin">
-                            </div>
-                            <div class="col-lg-8">
-                                <input type="date" class="form-control" id="inputTanggal" name="Tanggal">
-                            </div>
-                        </div>
+                        <label>Hari Tanggal</label><br>
+                        <input type="text" class="form-control" id="inputTanggal" name="Tanggal" placeholder="Senin, 12 Januari 2020">
                     </div>
                     <br>
                     <div align="center">
-                        <a href="{{base_url('user')}}" class="btn btn-primary">Selesai</a><br>
+                        <a href="{{base_url('magang/cetakIzin')}}" class="btn btn-primary">Selesai</a><br>
                     </div>
                 </div>
             </form>

@@ -9,7 +9,7 @@
       </div>
       <div class="card-body">
         <p class="card-text">Anda bisa mengajukan permohonan izin untuk meninggalkan job desk melalui menu ini.</p>
-        <a href="{{base_url('user/izin')}}" class="btn btn-primary">Isi Data</a>
+        <a href="{{base_url('karyawan/izin')}}" class="btn btn-primary">Isi Data</a>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
       </div>
       <div class="card-body">
         <p class="card-text">Anda bisa mengajukan permohonan cuti untuk meninggalkan job desk melalui menu ini.</p>
-        <a href="{{base_url('user/cuti')}}" class="btn btn-primary">Isi Data</a> &emsp; <a href="{{base_url('user/statusCuti')}}" class="btn btn-primary">Status Permohonan</a>
+        <a href="{{base_url('karyawan/cuti')}}" class="btn btn-primary">Isi Data</a> &emsp; <a href="{{base_url('karyawan/statusCuti')}}" class="btn btn-primary">Status Permohonan</a>
       </div>
     </div>
   </div> 

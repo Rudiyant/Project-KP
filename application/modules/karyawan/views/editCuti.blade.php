@@ -58,7 +58,7 @@
                     </div>
                     <br>
                     <div align="center">
-                        <a href="{{base_url('user')}}" class="btn btn-primary">Selesai</a><br>
+                        <a href="{{base_url('karyawan')}}" class="btn btn-primary">Selesai</a><br>
                     </div>
                 </div>
             </form>

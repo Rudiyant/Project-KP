@@ -27,9 +27,6 @@
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{base_url('admin')}}" class="nav-link">Home</a>
-        </li>
       </ul>
       <form class="form-inline ml-3">
       </form>

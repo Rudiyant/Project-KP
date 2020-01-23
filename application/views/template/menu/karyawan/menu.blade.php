@@ -1,5 +1,5 @@
 <li class="nav-item">
-    <a href="{{base_url('admin')}}" class="nav-link">
+    <a href="{{base_url('karyawan')}}" class="nav-link">
         <i class="nav-icon fas fa-th"></i>
         <p>
             Home
@@ -16,21 +16,15 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="{{base_url('admin/izin')}}" class="nav-link active">
+            <a href="{{base_url('karyawan/izin')}}" class="nav-link active">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Permohonan Izin</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{base_url('admin/cuti')}}" class="nav-link">
+            <a href="{{base_url('karyawan/cuti')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Permohonan Cuti</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{base_url('admin/direktur')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Kelola Data Direktur</p>
             </a>
         </li>
     </ul>

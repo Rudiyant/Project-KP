@@ -28,7 +28,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <div class="card-body login-card-body">
         <h4 class="login-box-msg">Login</h4>
 
-        <form action="{{base_url('start/login')}}" method="post">
+        <form action="{{base_url('start/authenticate')}}" method="post">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Username" name="username">
             <div class="input-group-append">
