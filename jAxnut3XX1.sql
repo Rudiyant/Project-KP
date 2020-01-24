@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jan 2020 pada 04.02
+-- Waktu pembuatan: 24 Jan 2020 pada 09.28
 -- Versi server: 10.4.10-MariaDB
 -- Versi PHP: 7.3.12
 
@@ -34,6 +34,13 @@ CREATE TABLE `admin` (
   `username` varchar(20) NOT NULL,
   `password` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `username`, `password`) VALUES
+('0001', 'admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 

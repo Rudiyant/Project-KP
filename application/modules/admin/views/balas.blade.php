@@ -15,8 +15,8 @@
                     </div>
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">
-                    <a href="#" class="btn btn-primary">Cetak</a>&ensp;
-                    <a href="#" class="btn btn-primary">Download</a>
+                    <a href="{{base_url('admin/cetak')}}" class="btn btn-primary">Cetak</a>&ensp;
+                    <a href="{{base_url('admin/download')}}" class="btn btn-primary">Download</a>
                 </div>
             </div>
         </div>

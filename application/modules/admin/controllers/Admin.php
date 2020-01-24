@@ -9,6 +9,18 @@ class Admin extends MY_Controller
 		$this->blade->render('admin', $data);
 	}
 
+	public function cetak()
+	{
+		$data['title'] = "Cetak Surat";
+		$this->blade->render('admin/cetak', $data);
+	}
+
+	public function download()
+	{
+		$data['title'] = "Download Surat";
+		$this->blade->render('admin/download', $data);
+	}
+
 	public function izin()
 	{
 		$data['title'] = "Daftar Permohonan Izin";
