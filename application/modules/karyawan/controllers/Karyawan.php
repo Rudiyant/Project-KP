@@ -8,6 +8,7 @@ class Karyawan extends MY_Controller
 	{
 		$data['title'] = "Selamat Datang ";
 		$data['type'] = 'karyawan';
+		$data['welcome'] = "1";
 		$this->blade->render('karyawan', $data);
     }
     
@@ -15,6 +16,7 @@ class Karyawan extends MY_Controller
 	{
 		$data['title'] = "Formulir Permohonan Izin";
 		$data['type'] = 'karyawan';
+		$data['welcome'] = "0";
 		$this->blade->render('izin', $data);
     }
     
@@ -22,6 +24,7 @@ class Karyawan extends MY_Controller
 	{
 		$data['title'] = "Formulir Permohonan Cuti";
 		$data['type'] = 'karyawan';
+		$data['welcome'] = "0";
 		$this->blade->render('cuti', $data);
     }
 
@@ -29,6 +32,7 @@ class Karyawan extends MY_Controller
 	{
 		$data['title'] = "Cetak Surat Izin";
 		$data['type'] = 'karyawan';
+		$data['welcome'] = "0";
 		$this->blade->render('cetakIzin', $data);
     }
     
@@ -36,6 +40,7 @@ class Karyawan extends MY_Controller
 	{
 		$data['title'] = "Edit Data Izin";
 		$data['type'] = 'karyawan';
+		$data['welcome'] = "0";
 		$this->blade->render('editIzin', $data);
     }
     
@@ -43,6 +48,7 @@ class Karyawan extends MY_Controller
 	{
 		$data['title'] = "Status Permohonan Cuti";
 		$data['type'] = 'karyawan';
+		$data['welcome'] = "0";
 		$this->blade->render('statusCuti', $data);
     }
     
@@ -50,6 +56,7 @@ class Karyawan extends MY_Controller
 	{
 		$data['title'] = "Edit Data Cuti";
 		$data['type'] = 'karyawan';
+		$data['welcome'] = "0";
 		$this->blade->render('editCuti', $data);
 	}
 }

@@ -7,6 +7,7 @@ class Magang extends MY_Controller
 	public function index()
 	{
 		$data['title'] = "Selamat Datang ";
+		$data['welcome'] = "1";
 		$data['type'] = 'magang';
 		$this->blade->render('magang', $data);
     }
@@ -15,6 +16,7 @@ class Magang extends MY_Controller
 	{
 		$data['title'] = "Formulir Permohonan Izin";
 		$data['type'] = 'magang';
+		$data['welcome'] = "0";
 		$this->blade->render('izin', $data);
     }
 
@@ -22,6 +24,7 @@ class Magang extends MY_Controller
 	{
 		$data['title'] = "Cetak Surat Izin";
 		$data['type'] = 'magang';
+		$data['welcome'] = "0";
 		$this->blade->render('cetakIzin', $data);
     }
     
@@ -29,6 +32,7 @@ class Magang extends MY_Controller
 	{
 		$data['title'] = "Edit Data Izin";
 		$data['type'] = 'magang';
+		$data['welcome'] = "0";
 		$this->blade->render('editIzin', $data);
     }
 }
