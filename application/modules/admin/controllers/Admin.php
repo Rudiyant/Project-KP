@@ -12,13 +12,14 @@ class Admin extends MY_Controller
 	public function cetak()
 	{
 		$data['title'] = "Cetak Surat";
-		$this->blade->render('admin/cetak', $data);
+		$this->blade->render('admin/cetak');
 	}
 
 	public function download()
 	{
+		error_reporting(0);
 		$data['title'] = "Download Surat";
-		$this->blade->render('admin/download', $data);
+		$this->blade->render('admin/download');
 	}
 
 	public function izin()
