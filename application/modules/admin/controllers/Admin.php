@@ -3,18 +3,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends MY_Controller
 {
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->load->model('AdminModel');
+	}
+
 	public function index()
 	{
 		$data['title'] = "Dasboard Admin";
 		$this->blade->render('admin', $data);
 	}
-
-	public function cetak()
-	{
-		$data['title'] = "Cetak Surat";
-		$this->blade->render('admin/cetak');
-	}
-
+	
 	public function download()
 	{
 		error_reporting(0);
@@ -30,8 +31,21 @@ class Admin extends MY_Controller
 
 	public function cuti()
 	{
-		$data['title'] = "Daftar Permohonan Cuti";
-		$this->blade->render('admin/cuti', $data);
+		error_reporting(0);
+		$data['title'] = "Permohonan Cuti";
+		$getData['surat_cutis'] = $this->AdminModel->getJoin("*", "surat_cuti", "karyawan", 
+														  "surat_cuti.id_karyawan = karyawan.id_karyawan");
+		$this->blade->render('admin/cuti', $getData);
+	}
+
+	public function cetak()
+	{
+		$id=$_GET['id_karyawan'];
+		error_reporting(0);
+		$getData['karyawans'] = $this->AdminModel->getJoin("*", "karyawan", "surat_cuti",
+															"karyawan.id_karyawan = surat_cuti.id_karyawan
+															and karyawan.id_karyawan = '$id'");
+		$this->blade->render('admin/cetak', $getData);
 	}
 
 	public function balas()

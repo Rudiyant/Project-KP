@@ -12,7 +12,9 @@
                     <hr>
                     <div class="form-group">
                         <label>Alasan</label><br>
-                        <textarea type="text" class="form-control" id="inputAlasan" name="alasan" rows="5"> Alasanya adalah.. </textarea>
+                        <form method="post">
+                            <textarea type="text" class="form-control" id="inputAlasan" name="alasan" rows="5"> Alasanya adalah.. </textarea>
+                        </form>
                     </div>
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">

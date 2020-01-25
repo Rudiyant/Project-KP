@@ -12,7 +12,7 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama Karyawan</th>
-                            <th scope="col">Tujuan Surat</th>
+                            <th scope="col">Tujuan Cuti</th>
                             <th scope="col">Alasan Cuti</th>
                             <th scope="col">Tanggal Mulai</th>
                             <th scope="col">Tanggal Selesai</th>
@@ -21,36 +21,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Karyawan 1</td>
-                            <td>Direktur Operasional Yayasan Sinai Indonesia</td>
-                            <td>Ada keperluan keluarga yang tidak bisa ditinggalkan</td>
-                            <td>12 Januari 2020</td>
-                            <td>14 Januari 2020</td>
-                            <td>Selasa, 15 Januari 2020</td>
-                            <td>
-                                <div class="social-auth-links text-center mb-3">
-                                    <a href="#" class="btn btn-primary">Disetujui</a><br><br>
-                                    <a href="{{base_url('admin/balas')}}" class="btn btn-danger">Ditolak</a>
-                                </div>
+                    <?php
+                    
+                $no=1;
+                foreach($surat_cutis as $surat_cuti)
+                {
+                    ?>  <tr>
+                            <!--akses nya dengan panah karna yang diambil dalam bentuk objek-->
+                            <td><?=$no++;?></td>
+                            <td><?=$surat_cuti->nama;?></td>
+                            <td><?=$surat_cuti->tujuan_cuti;?></td>
+                            <td><?=$surat_cuti->alasan_cuti;?></td>
+                            <td><?=$surat_cuti->hari_tgl_mulai;?></td>
+                            <td><?=$surat_cuti->hari_tanggal_selesai;?></td>
+                            <td><?=$surat_cuti->hari_tgl_masuk;?></td>
+                            <td> 
+                                <a href="#" class="btn btn-primary btn-xs">Disetujui</i></a>
+                                <a href="<?= base_url('admin/cetak?id_karyawan=' . $surat_cuti->id_karyawan);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Karyawan 1</td>
-                            <td>Direktur Operasional Yayasan Sinai Indonesia</td>
-                            <td>Ada keperluan keluarga yang tidak bisa ditinggalkan</td>
-                            <td>12 Januari 2020</td>
-                            <td>14 Januari 2020</td>
-                            <td>Selasa, 15 Januari 2020</td>
-                            <td>
-                                <div class="social-auth-links text-center mb-3">
-                                    <a href="#" class="btn btn-primary">Disetujui</a><br><br>
-                                    <a href="{{base_url('admin/balas')}}" class="btn btn-danger">Ditolak</a>
-                                </div>
-                            </td>
-                        </tr>
+                <?php
+                }
+                ?>
                     </tbody>
                 </table>
                 <hr><br>
