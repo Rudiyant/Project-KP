@@ -56,8 +56,11 @@ class Admin extends MY_Controller
 
 	public function direktur()
 	{
+		error_reporting(0);
 		$data['title'] = "Daftar Direktur";
-		$this->blade->render('admin/direktur', $data);
+		$getData['direkturs'] = $this->AdminModel->getData("*", "direktur");
+		$this->blade->render('admin/direktur', $getData);
+		
 	}
 
 	public function tambah()
