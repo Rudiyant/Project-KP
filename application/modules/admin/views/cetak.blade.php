@@ -25,24 +25,32 @@
 <body>
  	<table align="center" style="padding-left: 0pt;">
     <tr>
-      <td width="100pt" align="center">
+      <!-- <td width="100pt" align="center">
         <img src="{{base_url('assets/dist/img/logo.jpg')}}" style="	width: 50px; height: 50px; float: left;">
-        </td>
+        </td> -->
       <td>
-      	<div align="center" style="font-size: 18pt">
-      		Sekolah xxxxxxxxxxx<br>
+      	<div align="center" style="font-size: 20pt">
+      		SEKOLAH TELADAN YOGYAKARTA<br>
         </div>
-        <div style="font-size: 14pt; text-align: center;">
-           Alamat xxxxxxxxxxxxx
+        <div style="font-size: 12pt; text-align: center;">
+           Alamat : Jln. Kabupaten Km 0,5 No. 99, Nogotirto, Gamping, Sleman <br>
+        </div>
+		<div style="font-size: 12pt; text-align: center;">
+           Telp (0274) 2923001, 2923002 <br>
+        </div>
+		<div style="font-size: 12pt; text-align: center;">
+           Website: www.sekolahteladan.sch.id, Email: sdteladan.yogyakarta@gmail.com
         </div>
       </td>
     </tr>
   </table>
-  <div style="background-color: black; padding: 2px 100px"></div>
-
+  <div style="background-color: black; padding: 2px 100px"></div><br><br><br>
   <div class="tbl">
   	<table>
   		<tr>
+		  <div align="center" style="font-size: 14pt; text-decoration: underline ">
+      		SURAT BALASAN<br>
+          </div>
   			<td>Kepada Yth. xxxxxxxxxxxxxxx</td>
   			<td style="float: right; padding-left: 700pt">Yogyakarta, ................</td>
   		</tr>
