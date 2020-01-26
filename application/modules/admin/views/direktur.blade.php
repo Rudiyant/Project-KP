@@ -19,31 +19,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>8927180974</td>
-                            <td>Eko Yudi Prasetyo</td>
-                            <td>Direktur Operasional Yayasan Sinai Indonesia</td>
-                            <td>ON</td>
-                            <td>
-                                <div class="social-auth-links text-center mb-3">
-                                    <a href="#" class="btn btn-primary">Edit</a><br><br>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>8927180974</td>
-                            <td>Eko Yudi Prasetyo</td>
-                            <td>Direktur Operasional Yayasan Sinai Indonesia</td>
-                            <td>ON</td>
-                            <td>
-                                <div class="social-auth-links text-center mb-3">
-                                    <a href="#" class="btn btn-primary">Edit</a><br><br>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <?php
+                    
+                    $no=1;
+                    foreach($direkturs as $direktur)
+                    {
+                        ?>  <tr>
+                                <!--akses nya dengan panah karna yang diambil dalam bentuk objek-->
+                                <td><?=$no++;?></td>
+                                <td><?=$direktur->niy;?></td>
+                                <td><?=$direktur->nama;?></td>
+                                <td><?=$direktur->jabatan;?></td>
+                                <td><?=$direktur->status;?></td>
+                                <td> 
+                                    <a href="" class="btn btn-primary">Edit</a><br><br>
+                                </td>
+                            </tr>
+                    <?php
+                    }
+                    ?>
                 </table>
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">
