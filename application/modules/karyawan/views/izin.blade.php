@@ -31,14 +31,14 @@
                         <p class="radio-inline"><input type="radio" name="keterangan" value="Izin Terlambat Masuk Kerja" class="keterangan">&ensp; Izin Terlambat Masuk Kerja</p>
                         <p class="radio-inline"><input type="radio" name="keterangan" value="Pulang Lebih Awal" class="keterangan">&ensp; Pulang Lebih Awal</p>
                         <p class="radio-inline"><input type="radio" name="keterangan" value="Meninggalkan Sekolah saat Jam Kerja" class="keterangan">&ensp; Meninggalkan Sekolah saat Jam Kerja</p>
-                        <p class="radio-inline"><input type="radio" name="perlu" value="Ada Keperluan" class="keterangan">&ensp; Ada Keperluan</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Ada Keperluan" class="keterangan">&ensp; Ada Keperluan</p>
                         <div style="display:none" id="formKeperluan">
-                            <textarea type="text" class="form-control" name="perlu" rows="2"></textarea>
+                            <textarea type="text" class="form-control" name="perlu" rows="2">Ada Keperluan </textarea>
                             <br>
                         </div>
-                        <p class="radio-inline"><input type="radio" name="lain" value="Lain-lain" class="keterangan">&ensp; Lain-lain</p>
+                        <p class="radio-inline"><input type="radio" name="keterangan" value="Lain-lain" class="keterangan">&ensp; Lain-lain</p>
                         <div style="display:none" id="formLain">
-                            <textarea type="text" class="form-control" name="lain" rows="2"></textarea>
+                            <textarea type="text" class="form-control" name="lain" rows="2">Lain-lain, </textarea>
                             <br>
                         </div>
                     </div>

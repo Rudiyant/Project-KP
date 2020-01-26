@@ -6,7 +6,7 @@
     </div>
     <div class="col-lg-6">
         <div class="card card-primary card-outline">
-            <form class="card-body" method="POST" action="#">
+            <form class="card-body" method="POST" action="{{base_url('karyawan/buatSuratCuti')}}">
                 <div class="container">
                     <small>Data diri</small>
                     <hr>
@@ -19,8 +19,8 @@
                         <input type="text" class="form-control" id="inputJabatan" name="jabatan" value="<?= $karyawan['nama_jabatan'] ?>" readonly>
                     </div>
                     <div class="form-group">
-                        <label>Divisi</label><br>
-                        <input type="text" class="form-control" id="inputDivisi" name="divisi" value="<?= $karyawan['nama_divisi'] ?>" readonly>
+                        <label>Alamat</label><br>
+                        <textarea type="text" class="form-control" name="alamat" rows="3"></textarea>
                     </div>
                     <br>
                     <small>Tujuan Surat</small>
@@ -35,30 +35,30 @@
                     <hr>
                     <div class="form-group">
                         <label>Alasan</label><br>
-                        <input type="text" class="form-control" id="inputAlasan" name="alasan" placeholder="Alasan saya...">
+                        <textarea type="text" class="form-control" name="alasan" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Tanggal Mulai Cuti</label><br>
-                        <input type="date" class="form-control" id="inputMulai" name="Mulai">
+                        <input type="date" class="form-control" id="inputMulai" name="mulai">
                     </div>
                     <div class="form-group">
                         <label>Tanggal Selesai Cuti</label><br>
-                        <input type="date" class="form-control" id="inputSelesai" name="Selesai">
+                        <input type="date" class="form-control" id="inputSelesai" name="selesai">
                     </div>
                     <div class="form-group">
                         <label>Mulai Aktif Kembali</label><br>
                         <div class="form-row">
                             <div class="col-lg-4">
-                                <input type="text" class="form-control" id="inputHari" name="Hari" placeholder="Senin">
+                                <input type="text" class="form-control" id="inputHari" name="hari" placeholder="Senin">
                             </div>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" id="inputTanggal" name="Tanggal" placeholder="12 Januari 2020">
+                                <input type="text" class="form-control" id="inputTanggal" name="tanggal" placeholder="12 Januari 2020">
                             </div>
                         </div>
                     </div>
                     <br>
                     <div align="center">
-                        <a href="{{base_url('karyawan')}}" class="btn btn-primary">Selesai</a><br>
+                        <input type="submit" name="submit" value="Selesai" class="btn btn-primary"><br>
                     </div>
                 </div>
             </form>

@@ -18,16 +18,16 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Izin tidak masuk</td>
-                            <td>Ada keperluan keluarga yang tidak bisa ditinggalkan</td>
-                            <td>08.00-14.00</td>
-                            <td>Selasa, 13 Januari 2020</td>
+                            <td><?= $izin['keterangan_izin'] ?></td>
+                            <td><?= $izin['alasan_izin'] ?></td>
+                            <td><?= $izin['lama_waktu_izin'] ?></td>
+                            <td><?= $izin['hari_tanggal'] ?></td>
                         </tr>
                     </tbody>
                 </table>
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">
-                    <a href="{{base_url('magang/editIzin')}}" class="btn btn-danger">Edit Data</a><br><br>
+                    <a href="{{base_url('magang/editIzin/' . $izin['id_izin'])}}" class="btn btn-danger">Edit Data</a><br><br>
                     <a href="#" class="btn btn-primary">Cetak</a>&ensp;
                     <a href="#" class="btn btn-primary">Download</a>
                 </div>
