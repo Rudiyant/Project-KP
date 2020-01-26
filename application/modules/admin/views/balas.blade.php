@@ -24,6 +24,7 @@
                              udah coba yang ngga pake form tapi datanya yg udah di input malah ngga ikut -->
                 </div>
             </div>
+            
         </div>
     </div>
     <div class="col-lg-2">

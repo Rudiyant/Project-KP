@@ -17,11 +17,13 @@
   <link rel="stylesheet" href="{{base_url('assets/plugins/summernote/summernote-bs4.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="shortcut icon" href="<?= base_url('assets/dist/img/Teladan.png');?>">
+  <!-- <link rel="stylesheet" href="{{base_url('assets/DataTables/datatables.min.css')}}"> -->
   @yield('scripts-css')
   <!-- PANGGIL UNTUK INJEK CSS KE TEMPAT INI -->
 </head>
 
 <body class="hold-transition text-sm sidebar-mini layout-fixed">
+  <script src="{{base_url('assets/DataTables/datatables.min.js')}}"></script>
   <div class="wrapper">
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <ul class="navbar-nav">
