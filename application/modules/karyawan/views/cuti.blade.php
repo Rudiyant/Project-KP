@@ -12,15 +12,15 @@
                     <hr>
                     <div class="form-group">
                         <label>Nama Karyawan</label><br>
-                        <input type="text" class="form-control" id="inputName" name="nama" value="#" readonly>
+                        <input type="text" class="form-control" id="inputName" name="nama" value="<?= $karyawan['nama'] ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label>Jabatan</label><br>
-                        <input type="text" class="form-control" id="inputJabatan" name="jabatan" value="#" readonly>
+                        <input type="text" class="form-control" id="inputJabatan" name="jabatan" value="<?= $karyawan['nama_jabatan'] ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label>Divisi</label><br>
-                        <input type="text" class="form-control" id="inputDivisi" name="divisi" value="#" readonly>
+                        <input type="text" class="form-control" id="inputDivisi" name="divisi" value="<?= $karyawan['nama_divisi'] ?>" readonly>
                     </div>
                     <br>
                     <small>Tujuan Surat</small>
@@ -52,7 +52,7 @@
                                 <input type="text" class="form-control" id="inputHari" name="Hari" placeholder="Senin">
                             </div>
                             <div class="col-lg-8">
-                                <input type="date" class="form-control" id="inputTanggal" name="Tanggal">
+                                <input type="text" class="form-control" id="inputTanggal" name="Tanggal" placeholder="12 Januari 2020">
                             </div>
                         </div>
                     </div>
