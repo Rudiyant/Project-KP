@@ -41,7 +41,7 @@
                 </table>
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">
-                    <a href="{{base_url('admin/tambah')}}" class="btn btn-primary">Tambah Direktur</a><br><br>
+                    <a href="{{base_url('admin/cariKaryawan')}}" class="btn btn-primary">Tambah Direktur</a><br><br>
                 </div>
             </div>
         </div>
