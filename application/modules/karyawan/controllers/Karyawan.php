@@ -124,9 +124,10 @@ class Karyawan extends MY_Controller
 		$this->blade->render('cuti', $data);
 	}
 
-	public function getRomawi($bln){
-		switch ($bln){
-			case 1: 
+	public function getRomawi($bln)
+	{
+		switch ($bln) {
+			case 1:
 				return "I";
 				break;
 			case 2:
@@ -163,7 +164,7 @@ class Karyawan extends MY_Controller
 				return "XII";
 				break;
 		}
-}
+	}
 
 	public function buatSuratCuti()
 	{
@@ -171,21 +172,41 @@ class Karyawan extends MY_Controller
 		$data['type'] = 'karyawan';
 		$data['welcome'] = "0";
 
-		$bulan = date('n');
-		$romawi = redirect('karyawan/getRomawi/' . $bulan);
-		$tahun = date ('Y');
-		$nomor = "/SIC/".$romawi."/".$tahun;
+		// $bulan = date('n');
+		// $romawi = redirect('karyaean/getRomawi/.$bulan');
+		// $tahun = date('Y');
+		// $nomor = "/SPT/" . $romawi . "/" . $tahun;
 
-		$izin = array(
-			'alasan_izin'       => $this->input->post('alasan'),
-			'hari_tanggal'      => $this->input->post('tanggal'),
-			'lama_waktu_izin'   => $this->input->post('lama'),
-			'status_izin'		=> "OK",
+		$daftar_hari = array(
+			'Sunday' => 'Minggu',
+			'Monday' => 'Senin',
+			'Tuesday' => 'Selasa',
+			'Wednesday' => 'Rabu',
+			'Thursday' => 'Kamis',
+			'Friday' => 'Jumat',
+			'Saturday' => 'Sabtu'
+		   );
+		$mulai=$this->input->post('mulai');
+		$namahari = date('l', strtotime($mulai));
+		$daftar_hari[$namahari];
+
+		$hari = $this->input->post('hari');
+		$tanggal = $this->input->post('tanggal');
+
+		$cuti = array(
+			'nomor_surat'		=> "3",
+			'alasan_cuti'       => $this->input->post('alasan'),
+			'hari_tgl_mulai'    => $daftar_hari . $mulai,
+			'hari_tgl_selesai'  => $this->input->post('selesai'),
+			'hari_tgl_masuk'    => $hari . $tanggal,
+			'tujuan_cuti'	    => $this->input->post('tujuan'),
+			'status_cuti'		=> "0",
+			'tanggal'			=> date('l, d-m-Y'),
 			'id_karyawan'		=> $this->session->userdata('id'),
 		);
 
-		$this->KaryawanModel->buatSuratIzin($izin);
-		redirect('karyawan/cetakIzin/');
+		$this->KaryawanModel->buatSuratCuti($cuti);
+		redirect('karyawan');
 	}
 
 	public function statusCuti()

@@ -24,9 +24,9 @@ class Start extends MY_Controller
 		$cek_admin = $this->StartModel->auth_admin($username, $password);
 		if ($cek_admin->num_rows() > 0) //jika login sebagai admin
 		{
-			$admin = $this->StartModel->findByUsername($username);
+			$admin = $this->StartModel->findAdmin($username);
 			$data = array(
-				'nama'  => $admin['nama_admin'],
+				'nama'  => $admin['nama'],
 				'id'	=> $admin['id_admin'],
 				'logged_in' => TRUE
 			);
@@ -36,7 +36,8 @@ class Start extends MY_Controller
 			$cek_karyawan = $this->StartModel->auth_karyawan($username, $password);
 			if ($cek_karyawan->num_rows() > 0) //jika login sebagai karyawan
 			{
-				$karyawan = $this->StartModel->findByNIY($username);
+				$loginKaryawan = $this->StartModel->findKaryawan($username);
+				$karyawan = $this->StartModel->getKaryawan($loginKaryawan['akun_id']);
 				$data = array(
 					'nama'  => $karyawan['nama'],
 					'id'	=> $karyawan['id_karyawan'],
@@ -48,10 +49,11 @@ class Start extends MY_Controller
 				$cek_magang = $this->StartModel->auth_magang($username, $password);
 				if ($cek_magang->num_rows() > 0) //jika login sebagai karyawan magang
 				{
-					$karyawan = $this->StartModel->findByNIK($username);
+					$loginMagang = $this->StartModel->findMagang($username);
+					$magang = $this->StartModel->getMagnag($loginMagang['akun_id']);
 					$data = array(
-						'nama'  => $karyawan['nama'],
-						'id'	=> $karyawan['id_karyawan'],
+						'nama'  => $magang['nama'],
+						'id'	=> $magang['id_karyawan'],
 						'logged_in' => TRUE
 					);
 					$this->session->set_userdata($data);

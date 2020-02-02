@@ -52,7 +52,10 @@
                                 <input type="text" class="form-control" id="inputHari" name="hari" placeholder="Senin">
                             </div>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" id="inputTanggal" name="tanggal" placeholder="12 Januari 2020">
+                                <div class="input-append date form_datetime">
+                                    <input class="form-control" id="form_datetime" type="text" value="">
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -16,6 +16,10 @@
   <link rel="stylesheet" href="{{base_url('assets/plugins/daterangepicker/daterangepicker.css')}}">
   <link rel="stylesheet" href="{{base_url('assets/plugins/summernote/summernote-bs4.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="datepicker/datepicker3.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="shortcut icon" href="<?= base_url('assets/dist/img/Teladan.png'); ?>">
   @yield('scripts-css')
   <!-- PANGGIL UNTUK INJEK CSS KE TEMPAT INI -->
@@ -66,9 +70,9 @@
           <div align="center">
             <br>
             <h1 class="m-0 text-dark">{{$title}}
-            @if($welcome == '1')
-            <?= $this->session->userdata('nama'); ?>
-            @endif
+              @if($welcome == '1')
+              <?= $this->session->userdata('nama'); ?>
+              @endif
             </h1>
             <br>
           </div>
@@ -108,6 +112,13 @@
         } else {
           $("#formKeperluan, #formLain").hide();
         }
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    $(function() {
+      $("#form_datetime").datepicker({
+        format: "dd MM yyyy"
       });
     });
   </script>
