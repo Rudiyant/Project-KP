@@ -25,14 +25,14 @@
                         </div>
                         <div class="form-group">
                             <label>Jabatan</label><br>
-                            <input type="text" class="form-control" name="nama_jabatan" id="nama_jabatan" value="<?=$data->nama_jabatan;?>" readonly>
+                            <input type="text" class="form-control" name="jabatan" id="nama_jabatan" value="<?=$data->jabatan;?>" readonly>
                         </div>
                      <?php }
 
                     ?>
                         <br>
                         <div align="center">
-                            <input type="submit">
+                            <input type="submit" name="tambah" value="Tambah">
                         </div>
                     </div>
             </form>

@@ -55,9 +55,25 @@ class Admin extends MY_Controller
 	public function tambah()
 	{
 		error_reporting(0);
-		$data['title'] = "Tambah Direktur";
-		$postData['karyawan'] = $this->AdminModel->postData("*", "direktur", "karyawan");
-		$this->blade->render('admin/direktur', $postData);
+		if($_POST['tambah'])
+		{
+		$niy=$this->input->post('niy');
+		$nama=$this->input->post('nama');
+		$jabatan=$this->input->post('jabatan');
+			$data=array
+			(
+				'niy' =>$niy,
+				'nama'=>$nama,
+				'jabatan'=>$jabatan
+			);
+		
+		$insert=$this->AdminModel->insert('direktur',$data);
+			if ($insert) 
+			{
+				redirect(base_url('admin/direktur'));
+			}
+		}
+		$this->blade->render('admin/direktur');
 	}
 
 	public function cetak()

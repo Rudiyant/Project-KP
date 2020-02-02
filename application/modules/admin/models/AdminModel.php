@@ -53,6 +53,21 @@ class AdminModel extends CI_Model
 
         return $query;
     }
-    
+
+    function insert($insert, $value)
+    {
+        $this->db->insert($insert,$value);
+    }
+
+    function add()
+    {
+        $params = [
+            'niy' => $post['niy'],
+            'nama'=> $post['nama'],
+            'nama_jabatan' => $post['nama_jabatan']
+        ];
+        $this->db->insert('direktur',$params);
+    }
+
 }
 ?>
