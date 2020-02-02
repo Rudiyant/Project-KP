@@ -6,7 +6,7 @@ class Admin extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
-
+		$this->load->helper("url");
 		$this->load->model('AdminModel');
 	}
 
@@ -14,6 +14,20 @@ class Admin extends MY_Controller
 	{
 		$data['title'] = "Dasboard Admin";
 		$this->blade->render('admin', $data);
+	}
+ 
+	public function cariKaryawan() 
+	{
+		error_reporting(0);
+		$data['title'] = "Data Karyawan";
+		$this->blade->render('admin/tambahDirektur');
+	}
+ 
+	public function dataKaryawan()
+	{
+		error_reporting(0);
+		$data2['cari'] = $this->AdminModel->cariNiy();
+		$this->blade->render('admin/dataKaryawan', $data2);
 	}
 	
 	public function download()
@@ -38,20 +52,49 @@ class Admin extends MY_Controller
 		$this->blade->render('admin/cuti', $getData);
 	}
 
-	public function cetak()
+	public function tambah()
 	{
 		error_reporting(0);
-		$id=$_GET['id_karyawan'];
+		if($_POST['tambah'])
+		{
+		$niy=$this->input->post('niy');
+		$nama=$this->input->post('nama');
+		$jabatan=$this->input->post('jabatan');
+			$data=array
+			(
+				'niy' =>$niy,
+				'nama'=>$nama,
+				'jabatan'=>$jabatan
+			);
+		
+		$insert=$this->AdminModel->insert('direktur',$data);
+			if ($insert) 
+			{
+				redirect(base_url('admin/direktur'));
+			}
+		}
+		$this->blade->render('admin/direktur');
+	}
+
+	public function cetak()
+	{
+		//error_reporting(0);
+		//$id=$_GET['id_karyawan'];
 		$getData['karyawans'] = $this->AdminModel->getJoin("*", "karyawan", "surat_cuti",
 															"karyawan.id_karyawan = surat_cuti.id_karyawan
-															and karyawan.id_karyawan = '$id'");
+															");
 		$this->blade->render('admin/cetak', $getData);
 	}
 
 	public function balas()
 	{
-		$data['title'] = "Cetak Surat Balasan";
-		$this->blade->render('admin/balas', $data);
+		error_reporting(0);
+		$data['title'] = "Surat Balasan";
+		$id=$_GET['id_karyawan'];
+		$getData['surat_cutis'] = $this->AdminModel->getJoin("*", "surat_cuti", "karyawan", 
+														  "surat_cuti.id_karyawan = karyawan.id_karyawan
+														  and karyawan.id_karyawan = '$id'");
+		$this->blade->render('admin/balas', $getData);
 	}
 
 	public function direktur()
@@ -63,26 +106,4 @@ class Admin extends MY_Controller
 		
 	}
 
-	public function tambah()
-	{
-		error_reporting(0);
-		$data['title'] = "Tambah Direktur";
-		$niy=$_GET['niy'];
-		$getData['karyawan'] = $this->AdminModel->getData("*", "karyawan", array('niy'=>$niy));
-		$this->blade->render('admin/tambahDirektur', $getData);
-	}
-
-	public function karyawan()
-	{
-		error_reporting(0);
-		//$data['title'] = "Tambah Direktur";
-		// $id=$_GET['niy'];
-		// $getData['karyawans'] = $this->AdminModel->getData("*", "karyawan", "niy = '$id'");
-		// $this->blade->render('admin/dataKaryawan', $getData);
-
-		$niy=$_GET['niy'];
-		$data['title'] = "Tambah Direktur";
-		$getData['karyawan']=$this->AdminModel->getData('*','karyawan',"niy = '$niy'");
-		$this->blade->render('admin/dataKaryawan', $getData);
-	}
 }

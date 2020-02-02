@@ -1,13 +1,18 @@
 @layout('template/main/admin/main')
 
 @section('content')
-<form action="{{base_url('admin/cetak')}}" method="post" name="cetak">
 <div class="row">
     <div class="col-lg-2">
     </div>
     <div class="col-lg-8">
         <div class="card card-primary card-outline">
             <div class="card-body">
+            <?php
+         foreach ($surat_cutis as $surat_cuti) 
+         {
+			echo $surat_cuti->id_karyawan . " => " . $surat_cuti->nama ."<br>";
+		 }
+		?>
             <small>Permohonan Cuti Ditolak</small>
                     <hr>
                     <div class="form-group">
@@ -18,8 +23,8 @@
                     </div>
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">
-                        <button type="submit" name="tombol_cetak" class="btn btn-primary">Cetak</button>
-                        <button type="submit" name="tombol_download" class="btn btn-primary">Download</button>
+                <a href="<?= base_url('admin/cetak?id_karyawan' . $surat_cuti->id_karyawan);?>" name="alasan" class="btn btn-primary btn-xs">Cetak</i></a>
+                <a href="<?= base_url('admin/balas?id_karyawan');?>" class="btn btn-primary btn-xs">Download</i></a>
                         <!-- masih ke alamat yang sama, bisa ke beda alamat ngga ya?
                              udah coba yang ngga pake form tapi datanya yg udah di input malah ngga ikut -->
                 </div>
@@ -30,6 +35,5 @@
     <div class="col-lg-2">
     </div>
 </div>
-</form>
 
 @endsection
