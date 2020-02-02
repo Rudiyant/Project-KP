@@ -34,11 +34,14 @@ class AdminModel extends CI_Model
         } 
     }
 
-    // function postData($table,$value)
-    // {
-    //     return $this->db
-    //                 ->$insert($table,$value);
-    // }
+    function postData($insert, $tabel3, $tabel4)
+    {
+        return $this->db
+                    ->insert($insert)
+                    ->select($tabel3)
+                    ->from($tabel4)
+                    ->set($insert);
+    }
 
     function getJoin($kolom, $table1, $table2, $syarat)
     {
@@ -50,7 +53,6 @@ class AdminModel extends CI_Model
 
         return $query;
     }
- 
     
 }
 ?>

@@ -36,7 +36,7 @@
                                     <td> 
                                         <a href="#" class="btn btn-primary btn-xs">Disetujui</i></a>
                                     <center>
-                                        <br><a href="<?= base_url('admin/cetak?id_karyawan=' . $surat_cuti->id_karyawan);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
+                                        <br><a href="<?= base_url('admin/balas?id_karyawan=' . $surat_cuti->id_karyawan);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
                                     </center>
                                     </td>
                             </tr>

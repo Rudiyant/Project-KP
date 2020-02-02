@@ -26,17 +26,9 @@ class Admin extends MY_Controller
 	public function dataKaryawan()
 	{
 		error_reporting(0);
-
 		$data2['cari'] = $this->AdminModel->cariNiy();
 		$this->blade->render('admin/dataKaryawan', $data2);
 	}
-
-	// public function tambah()
-	// {
-	// 	$data['title'] = "Data Direktur";
-	// 	$postData['direktur'] = $this->AdminModel->postData("*", "direktur");
-	// 	$this->blade->render('admin/direktur', $postData);
-	// }
 	
 	public function download()
 	{
@@ -60,20 +52,33 @@ class Admin extends MY_Controller
 		$this->blade->render('admin/cuti', $getData);
 	}
 
-	public function cetak()
+	public function tambah()
 	{
 		error_reporting(0);
-		$id=$_GET['id_karyawan'];
+		$data['title'] = "Tambah Direktur";
+		$postData['karyawan'] = $this->AdminModel->postData("*", "direktur", "karyawan");
+		$this->blade->render('admin/direktur', $postData);
+	}
+
+	public function cetak()
+	{
+		//error_reporting(0);
+		//$id=$_GET['id_karyawan'];
 		$getData['karyawans'] = $this->AdminModel->getJoin("*", "karyawan", "surat_cuti",
 															"karyawan.id_karyawan = surat_cuti.id_karyawan
-															and karyawan.id_karyawan = '$id'");
+															");
 		$this->blade->render('admin/cetak', $getData);
 	}
 
 	public function balas()
 	{
-		$data['title'] = "Cetak Surat Balasan";
-		$this->blade->render('admin/balas', $data);
+		error_reporting(0);
+		$data['title'] = "Surat Balasan";
+		$id=$_GET['id_karyawan'];
+		$getData['surat_cutis'] = $this->AdminModel->getJoin("*", "surat_cuti", "karyawan", 
+														  "surat_cuti.id_karyawan = karyawan.id_karyawan
+														  and karyawan.id_karyawan = '$id'");
+		$this->blade->render('admin/balas', $getData);
 	}
 
 	public function direktur()

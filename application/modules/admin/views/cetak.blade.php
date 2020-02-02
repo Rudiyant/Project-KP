@@ -1,21 +1,3 @@
-<!-- 
-<?php
- $alasan = $_POST['alasan'];
- 
-	echo "
-	<center>
-	<h1>CONTOH SURAT PENOLAKAN</h1>
-	</center>
-	
-	<p> $alasan </p>
-  
-    <script>
-		window.print();
-	</script>
-";
-
-?> -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,12 +5,18 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<?php
+         foreach ($karyawans as $karyawan) 
+         {
+			echo $karyawan->id_karyawan . " => " . $karyawan->nama ."<br>";
+		 }
+		?>
  	<table align="center" style="padding-left: 0pt;">
     <tr>
       <!-- <td width="100pt" align="center">
         <img src="{{base_url('assets/dist/img/logo.jpg')}}" style="	width: 50px; height: 50px; float: left;">
-        </td> -->
-      <td>
+        </td> 
+      <td> -->
       	<div align="center" style="font-size: 20pt">
       		SEKOLAH TELADAN YOGYAKARTA<br>
         </div>
@@ -121,8 +109,9 @@
   		</tr>
   	</table>
   </div>
-  <script>
+  <!-- <script>
 		window.print();
-  </script>
+  </script> -->
 </body>
 </html>
+
