@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label>Hari Tanggal</label><br>
-                        <input type="text" class="form-control" id="inputTanggal" name="tanggal" placeholder="Senin, 12 Januari 2020">
+                        <input type="date" class="form-control" id="inputTanggal" name="tanggal">
                     </div>
                     <br>
                     <div align="center">

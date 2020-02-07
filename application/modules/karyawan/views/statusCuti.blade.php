@@ -19,11 +19,11 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Direktur Operasional Yayasan Sinai Indonesia</td>
-                            <td>Ada keperluan keluarga yang tidak bisa ditinggalkan</td>
-                            <td>12 Januari 2020</td>
-                            <td>14 Januari 2020</td>
-                            <td>Selasa, 15 Januari 2020</td>
+                            <td><?= $cuti['tujuan_cuti'] ?></td>
+                            <td><?= $cuti['alasan_cuti'] ?></td>
+                            <td><?= $cuti['hari_tgl_mulai'] ?></td>
+                            <td><?= $cuti['hari_tgl_selesai'] ?></td>
+                            <td><?= $cuti['hari_tgl_masuk'] ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -31,8 +31,12 @@
                 <div class="social-auth-links text-center mb-3">
                     <a href="{{base_url('karyawan/editCuti')}}" class="btn btn-danger">Edit Data</a><br><br>
                     <p>Permohonan cuti Anda sudah disetujuai, klik tombol di bawah untuk cetak atau download surat cuti</p>
-                    <a href="#" class="btn btn-primary">Cetak</a>&ensp;
-                    <a href="#" class="btn btn-primary">Download</a>
+                    <?php
+                        $index1 = '0';
+                        $index2 = '1';
+                    ?>
+                    <a href="{{base_url('karyawan/suratCuti/' . $index1)}}" class="btn btn-primary">Cetak</a>&ensp;
+                    <a href="{{base_url('karyawan/suratCuti/' . $index2)}}" class="btn btn-primary"><i class="fa fa-download"></i>Download</a>
                 </div>
             </div>
         </div>

@@ -48,15 +48,7 @@
                     <div class="form-group">
                         <label>Mulai Aktif Kembali</label><br>
                         <div class="form-row">
-                            <div class="col-lg-4">
-                                <input type="text" class="form-control" id="inputHari" name="hari" placeholder="Senin">
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="input-append date form_datetime">
-                                    <input class="form-control" id="form_datetime" type="text" value="">
-                                    <span class="add-on"><i class="icon-th"></i></span>
-                                </div>
-                            </div>
+                            <input type="date" class="form-control" id="inputHari" name="masuk">
                         </div>
                     </div>
                     <br>

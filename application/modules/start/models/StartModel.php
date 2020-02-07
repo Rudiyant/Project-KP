@@ -11,11 +11,6 @@ class StartModel extends CI_Model
         return $query;
     }
 
-    function auth_magang($username, $password){
-        $query=$this->db->query("SELECT * FROM karyawan_akun WHERE akun_username='$username' AND akun_password='$password' AND is_active='1'");
-        return $query;
-    }
-
     public function findAdmin($username) {
         return $this->db->where('username', $username)->get('admin')->row_array();
     }
@@ -25,14 +20,6 @@ class StartModel extends CI_Model
     }
 
     public function getKaryawan($akun_id) {
-        return $this->db->where('akun_id', $akun_id)->get('karyawan')->row_array();
-    }
-
-    public function findMagnag($username) {
-        return $this->db->where('akun_username', $username)->get('karyawan_akun')->row_array();
-    }
-
-    public function getMagang($akun_id) {
         return $this->db->where('akun_id', $akun_id)->get('karyawan')->row_array();
     }
 }

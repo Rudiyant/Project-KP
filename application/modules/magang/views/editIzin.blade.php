@@ -73,7 +73,7 @@
                     </div>
                     <div class="form-group">
                         <label>Hari Tanggal</label><br>
-                        <input type="text" class="form-control" id="inputTanggal" name="tanggal" value="<?= $izin['hari_tanggal'] ?>">
+                        <input type="date" class="form-control" id="inputTanggal" name="tanggal" value="<?= $izin['hari_tanggal'] ?>">
                     </div>
                     <br>
                     <div align="center">

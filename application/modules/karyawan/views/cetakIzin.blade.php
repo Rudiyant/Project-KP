@@ -28,8 +28,12 @@
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">
                     <a href="{{base_url('karyawan/editIzin/'. $izin['id_izin'])}}" class="btn btn-danger">Edit Data</a><br><br>
-                    <a href="#" class="btn btn-primary">Cetak</a>&ensp;
-                    <a href="#" class="btn btn-primary">Download</a>
+                    <?php
+                        $index1 = '0';
+                        $index2 = '1';
+                    ?>
+                    <a href="{{base_url('karyawan/suratIzin/' . $izin['id_izin'] . '/' . $index1)}}" class="btn btn-primary">Cetak</a>&ensp;
+                    <a href="{{base_url('karyawan/suratIzin/' . $izin['id_izin'] . '/' . $index2)}}" class="btn btn-primary"><i class="fa fa-download"></i>Download</a>
                 </div>
             </div>
         </div>

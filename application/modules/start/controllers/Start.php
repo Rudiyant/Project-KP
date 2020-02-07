@@ -38,32 +38,26 @@ class Start extends MY_Controller
 			{
 				$loginKaryawan = $this->StartModel->findKaryawan($username);
 				$karyawan = $this->StartModel->getKaryawan($loginKaryawan['akun_id']);
-				$data = array(
-					'nama'  => $karyawan['nama'],
-					'id'	=> $karyawan['id_karyawan'],
-					'logged_in' => TRUE
-				);
-				$this->session->set_userdata($data);
-				redirect('karyawan');
-			} else {
-				$cek_magang = $this->StartModel->auth_magang($username, $password);
-				if ($cek_magang->num_rows() > 0) //jika login sebagai karyawan magang
-				{
-					$loginMagang = $this->StartModel->findMagang($username);
-					$magang = $this->StartModel->getMagnag($loginMagang['akun_id']);
+				if ($karyawan['niy'] != null) {
 					$data = array(
-						'nama'  => $magang['nama'],
-						'id'	=> $magang['id_karyawan'],
+						'nama'  => $karyawan['nama'],
+						'id'	=> $karyawan['id_karyawan'],
 						'logged_in' => TRUE
 					);
 					$this->session->set_userdata($data);
-					redirect('magang');
-				}
-				else //jika username atau password tidak ada
-				{
-					$this->session->set_flashdata('failed', '<div style="color: red">Username atau password salah!</div>');
-					redirect('start');
-				}
+					redirect('karyawan');
+				} else if ($karyawan['nik'] != null) {
+						$data = array(
+							'nama'  => $karyawan['nama'],
+							'id'	=> $karyawan['id_karyawan'],
+							'logged_in' => TRUE
+						);
+						$this->session->set_userdata($data);
+						redirect('magang');
+					}
+			} else {
+				$this->session->set_flashdata('failed', '<div style="color: red">Username atau password salah!</div>');
+				redirect('start');
 			}
 		}
 	}
