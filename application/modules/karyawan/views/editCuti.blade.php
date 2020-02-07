@@ -27,8 +27,10 @@
                     <hr>
                     <div class="form-group">
                         <label>Ditujukan Kepada</label><br>
-                        <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Operasional Yayasan Sinai Indonesia" <?php echo ($cuti['tujuan_cuti'] == 'Direktur Operasional Yayasan Sinai Indonesia') ? 'checked' : '' ?>>&ensp; Direktur Operasional Yayasan Sinai Indonesia</p>
-                        <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Sekolah Teladan" <?php echo ($cuti['tujuan_cuti'] == 'Direktur Sekolah Teladan') ? 'checked' : '' ?>>&ensp; Direktur Sekolah Teladan</p>
+                        <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Operasional Yayasan Sinai Indonesia"
+                        <?php echo ($cuti['tujuan_cuti'] == 'Direktur Operasional Yayasan Sinai Indonesia') ? 'checked' : '' ?>>&ensp; Direktur Operasional Yayasan Sinai Indonesia</p>
+                        <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Sekolah Teladan"
+                        <?php echo ($cuti['tujuan_cuti'] == 'Direktur Sekolah Teladan') ? 'checked' : '' ?>>&ensp; Direktur Sekolah Teladan</p>
                     </div>
                     <br>
                     <small>Keterangan Cuti</small>
