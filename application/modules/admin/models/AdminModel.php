@@ -77,10 +77,10 @@ class AdminModel extends CI_Model
         return $query;
     }
 
-    public function setuju($updateData)
+    public function setuju($nomorSurat, $statusCuti)
     {
-        // $this->db->query("UPDATE surat_cuti SET status_cuti = '1' WHERE nomor_surat ='$nomorSurat'");
-        $this->db->set($updateData)->where('nomor_surat', $updateData['nomor_surat'])->update('surat_cuti', $updateData);
+        $this->db->where('nomor_surat', $nomorSurat)->update('surat_cuti', $statusCuti);
+
         $query = $this->db->query('SELECT * FROM surat_cuti s INNER JOIN karyawan k ON s.id_karyawan=k.id_karyawan')->result_array();
         return $query;
     }

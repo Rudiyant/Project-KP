@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-10">
+    <div class="col-lg">
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <table class="table">
@@ -35,7 +34,7 @@
                                 <?php if ($row['status_cuti'] == '0') : ?>
                                     <td>
                                         <div align="center">
-                                            <a href="{{base_url('admin/setuju/' . $row['nomor_surat'])}}" class="btn btn-primary btn-xs">Disetujui</i></a>
+                                            <a href="<?= base_url('admin/setuju?nomor_surat=' . $row['nomor_surat']);  ?>" class="btn btn-primary btn-xs">Disetujui</i></a>
                                             <br><a href="<?= base_url('admin/balas?id_karyawan=' . $row['id_karyawan']);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
                                         </div>
                                     </td>
@@ -51,8 +50,6 @@
                 <hr><br>
             </div>
         </div>
-    </div>
-    <div class="col-lg-2">
     </div>
 </div>
 

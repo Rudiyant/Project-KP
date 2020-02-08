@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-2">
-    </div>
-    <div class="col-lg-8">
+    <div class="col-lg">
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <table class="table">
@@ -19,25 +17,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
-                    
-                    $no=1;
-                    foreach($direkturs as $direktur)
-                    {
-                        ?>  <tr>
+                        <?php
+
+                        $no = 1;
+                        foreach ($direkturs as $direktur) {
+                        ?> <tr>
                                 <!--akses nya dengan panah karna yang diambil dalam bentuk objek-->
-                                <td><?=$no++;?></td>
-                                <td><?=$direktur->niy;?></td>
-                                <td><?=$direktur->nama;?></td>
-                                <td><?=$direktur->jabatan;?></td>
-                                <td><?=$direktur->status;?></td>
-                                <td> 
+                                <td><?= $no++; ?></td>
+                                <td><?= $direktur->niy; ?></td>
+                                <td><?= $direktur->nama; ?></td>
+                                <td><?= $direktur->jabatan; ?></td>
+                                <td><?= $direktur->status; ?></td>
+                                <td>
                                     <a href="" class="btn btn-primary">Edit</a><br><br>
                                 </td>
                             </tr>
-                    <?php
-                    }
-                    ?>
+                        <?php
+                        }
+                        ?>
                 </table>
                 <hr><br>
                 <div class="social-auth-links text-center mb-3">
@@ -45,8 +42,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-2">
     </div>
 </div>
 @endsection

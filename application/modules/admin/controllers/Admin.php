@@ -108,13 +108,11 @@ class Admin extends MY_Controller
 		
 	}
 
-	public function setuju($nomorSurat)
+	public function setuju()
 	{
-		$updateData=array(
-			'nomor_surat' => $nomorSurat,
-			'status_cuti' => "1",
-		);
-		$data['cuti'] = $this->AdminModel->setuju($updateData);
+		$nomorSurat = $_GET['nomor_surat'];
+		$statusCuti['status_cuti'] = "1";
+		$data['cuti'] = $this->AdminModel->setuju($nomorSurat, $statusCuti);
 		$data['title'] = "Daftar Permohonan Cuti";
 		$this->blade->render('admin/cuti', $data);
 		

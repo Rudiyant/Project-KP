@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-2">
-    </div>
-    <div class="col-lg-8">
+    <div class="col-lg">
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <table class="table">
@@ -20,30 +18,28 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <?php 
-                                $index = '1';
-                                if( !empty($izin) ) :
-                                    foreach($izin as $row) : 
+                            <?php
+                            $index = '1';
+                            if (!empty($izin)) :
+                                foreach ($izin as $row) :
                             ?>
-                            <td><?= $index ?></td>
-                            <td><?= $row['nama'] ?></td>
-                            <td><?= $row['keterangan_izin'] ?></td>
-                            <td><?= $row['alasan_izin'] ?></td>
-                            <td><?= $row['lama_waktu_izin'] ?></td>
-                            <td><?= $row['hari_tanggal'] ?></td>
+                                    <td><?= $index ?></td>
+                                    <td><?= $row['nama'] ?></td>
+                                    <td><?= $row['keterangan_izin'] ?></td>
+                                    <td><?= $row['alasan_izin'] ?></td>
+                                    <td><?= $row['lama_waktu_izin'] ?></td>
+                                    <td><?= $row['hari_tanggal'] ?></td>
                         </tr>
                     </tbody>
-                    <?php 
-                        $index++;
-                                    endforeach;
-                                endif;
-                    ?>
+            <?php
+                                    $index++;
+                                endforeach;
+                            endif;
+            ?>
                 </table>
                 <hr><br>
             </div>
         </div>
-    </div>
-    <div class="col-lg-2">
     </div>
 </div>
 @endsection

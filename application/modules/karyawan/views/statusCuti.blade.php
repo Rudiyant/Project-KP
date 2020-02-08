@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-2">
-    </div>
-    <div class="col-lg-8">
+    <div class="col-lg">
         <div class="card card-primary card-outline">
             <div class="card-body">
                 <table class="table">
@@ -48,8 +46,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-2">
     </div>
 </div>
 @endsection
