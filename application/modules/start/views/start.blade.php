@@ -15,6 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <link rel="stylesheet" href="{{base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{base_url('assets/dist/css/adminlte.min.cs')}}s">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="shortcut icon" href="<?= base_url('assets/dist/img/Teladan.png');?>">
 </head>
 
 <body class="hold-transition login-page">

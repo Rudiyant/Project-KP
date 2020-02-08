@@ -120,6 +120,7 @@ class Karyawan extends MY_Controller
 		);
 
 		$this->KaryawanModel->update($izin);
+		$this->session->set_flashdata('update', '<div style="color: green">Data berhasil diupdate.</div>');
 		redirect('karyawan/cetakIzin/' . $id_izin);
 	}
 
@@ -672,6 +673,7 @@ class Karyawan extends MY_Controller
 		);
 
 		$this->KaryawanModel->updateCuti($cuti);
+		$this->session->set_flashdata('update', '<div style="color: green">Data berhasil diupdate.</div>');
 		redirect('karyawan/statusCuti/' . $nomorSurat);
 	}
 
@@ -723,7 +725,7 @@ class Karyawan extends MY_Controller
 		$pdf->Cell(0, 6, 'Jabatan		: '.$karyawan['nama_jabatan'], 0, 1);
 		$pdf->Ln(3);
 
-		$pdf->Cell(0, 6, 'Bermaksud mengajukan ijin cuti '.$cuti['alasan_cuti'], 0, 1);
+		$pdf->Cell(0, 6, 'Bermaksud mengajukan ijin cuti '.$cuti['alasan_cuti'].'.', 0, 1);
 		$pdf->Cell(75, 6, 'Dimulai sejak hari '.$cuti['hari_tgl_mulai'], 0, 0);
 		$pdf->Cell(79, 6, 'dan selesai pada hari '.$cuti['hari_tgl_selesai'], 0, 0);
 		$pdf->Cell(0,6, 'sehingga akan', 0,1);

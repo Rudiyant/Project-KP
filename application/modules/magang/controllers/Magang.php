@@ -121,6 +121,7 @@ class Magang extends MY_Controller
 		);
 
 		$this->MagangModel->update($izin);
+		$this->session->set_flashdata('update', '<div style="color: green">Data berhasil diupdate.</div>');
 		redirect('magang/cetakIzin/' . $id_izin);
 	}
 

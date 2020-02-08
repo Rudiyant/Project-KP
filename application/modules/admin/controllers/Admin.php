@@ -40,21 +40,23 @@ class Admin extends MY_Controller
 	public function izin()
 	{
 		$data['title'] = "Daftar Permohonan Izin";
-		$this->blade->render('admin/izin', $data);
+	
+		$data['izin'] = $this->AdminModel->dataIzin();
+
+		$this->blade->render('izin', $data);
 	}
 
 	public function cuti()
 	{
-		error_reporting(0);
-		$data['title'] = "Permohonan Cuti";
-		$getData['surat_cutis'] = $this->AdminModel->getJoin("*", "surat_cuti", "karyawan", 
-														  "surat_cuti.id_karyawan = karyawan.id_karyawan");
-		$this->blade->render('admin/cuti', $getData);
+		$data['title'] = "Daftar Permohonan Cuti";
+		$data['cuti'] = $this->AdminModel->dataCuti();
+		$this->blade->render('admin/cuti', $data);
 	}
 
 	public function tambah()
 	{
 		error_reporting(0);
+		$data['title'] = "Tambah Data Direktur";
 		if($_POST['tambah'])
 		{
 		$niy=$this->input->post('niy');
@@ -67,7 +69,7 @@ class Admin extends MY_Controller
 				'jabatan'=>$jabatan
 			);
 		
-		$insert=$this->AdminModel->insert('direktur',$data);
+		$insert=$this->AdminModel->insert('direktur', $data);
 			if ($insert) 
 			{
 				redirect(base_url('admin/direktur'));
@@ -100,9 +102,21 @@ class Admin extends MY_Controller
 	public function direktur()
 	{
 		error_reporting(0);
-		$data['title'] = "Daftar Direktur";
+		$getData['title'] = "Daftar Direktur";
 		$getData['direkturs'] = $this->AdminModel->getData("*", "direktur");
 		$this->blade->render('admin/direktur', $getData);
+		
+	}
+
+	public function setuju($nomorSurat)
+	{
+		$updateData=array(
+			'nomor_surat' => $nomorSurat,
+			'status_cuti' => "1",
+		);
+		$data['cuti'] = $this->AdminModel->setuju($updateData);
+		$data['title'] = "Daftar Permohonan Cuti";
+		$this->blade->render('admin/cuti', $data);
 		
 	}
 

@@ -21,24 +21,27 @@
                     </thead>
                     <tbody>
                         <?php
-                        $no=1;
-                        foreach($surat_cutis as $surat_cuti)
-                        {
-                            ?>  
+                        $no = 1;
+                        foreach ($cuti as $row) {
+                        ?>
                             <tr>
-                                    <td><?=$no++;?></td>
-                                    <td><?=$surat_cuti->nama;?></td>
-                                    <td><?=$surat_cuti->tujuan_cuti;?></td>
-                                    <td><?=$surat_cuti->alasan_cuti;?></td>
-                                    <td><?=$surat_cuti->hari_tgl_mulai;?></td>
-                                    <td><?=$surat_cuti->hari_tanggal_selesai;?></td>
-                                    <td><?=$surat_cuti->hari_tgl_masuk;?></td>
-                                    <td> 
-                                        <a href="#" class="btn btn-primary btn-xs">Disetujui</i></a>
-                                    <center>
-                                        <br><a href="<?= base_url('admin/balas?id_karyawan=' . $surat_cuti->id_karyawan);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
-                                    </center>
+                                <td><?= $no++; ?></td>
+                                <td><?= $row['nama'] ?></td>
+                                <td><?= $row['tujuan_cuti'] ?></td>
+                                <td><?= $row['alasan_cuti'] ?></td>
+                                <td><?= $row['hari_tgl_mulai'] ?></td>
+                                <td><?= $row['hari_tgl_selesai'] ?></td>
+                                <td><?= $row['hari_tgl_masuk'] ?></td>
+                                <?php if ($row['status_cuti'] == '0') : ?>
+                                    <td>
+                                        <div align="center">
+                                            <a href="{{base_url('admin/setuju/' . $row['nomor_surat'])}}" class="btn btn-primary btn-xs">Disetujui</i></a>
+                                            <br><a href="<?= base_url('admin/balas?id_karyawan=' . $row['id_karyawan']);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
+                                        </div>
                                     </td>
+                                <?php elseif ($row['status_cuti'] == '1') : ?>
+                                    <td>Permohonan Telah Disetujui</td>
+                                <?php endif ?>
                             </tr>
                         <?php
                         }
@@ -51,6 +54,6 @@
     </div>
     <div class="col-lg-2">
     </div>
-</div> 
+</div>
 
 @endsection

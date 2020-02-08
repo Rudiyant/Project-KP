@@ -27,16 +27,24 @@
                         </tr>
                     </tbody>
                 </table>
-                <hr><br>
+                <hr>
+                <div align="center">
+                    <?= $this->session->flashdata('update'); ?>
+                </div>
+                <br>
                 <div class="social-auth-links text-center mb-3">
-                    <a href="{{base_url('karyawan/editCuti')}}" class="btn btn-danger">Edit Data</a><br><br>
-                    <p>Permohonan cuti Anda sudah disetujuai, klik tombol di bawah untuk cetak atau download surat cuti</p>
-                    <?php
+                    <?php if ($cuti['status_cuti'] == '0') : ?>
+                        <a href="{{base_url('karyawan/editCuti')}}" class="btn btn-danger">Edit Data</a><br><br>
+                        <p>Permohonan cuti Anda dalam proses verifikasi.</p>
+                    <?php elseif ($cuti['status_cuti'] == '1') : ?>
+                        <p>Permohonan cuti Anda sudah disetujuai, klik tombol di bawah untuk cetak atau download surat cuti</p>
+                        <?php
                         $index1 = '0';
                         $index2 = '1';
-                    ?>
-                    <a href="{{base_url('karyawan/suratCuti/' . $index1)}}" class="btn btn-primary">Cetak</a>&ensp;
-                    <a href="{{base_url('karyawan/suratCuti/' . $index2)}}" class="btn btn-primary"><i class="fa fa-download"></i>Download</a>
+                        ?>
+                        <a href="{{base_url('karyawan/suratCuti/' . $index1)}}" class="btn btn-primary">Cetak</a>&ensp;
+                        <a href="{{base_url('karyawan/suratCuti/' . $index2)}}" class="btn btn-primary"><i class="fa fa-download"></i>Download</a>
+                    <?php endif ?>
                 </div>
             </div>
         </div>

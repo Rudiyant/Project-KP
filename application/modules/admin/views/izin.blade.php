@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
+                            <th scope="col">Nama Karyawan</th>
                             <th scope="col">Keterangan Izin</th>
                             <th scope="col">Alasan Izin</th>
                             <th scope="col">Lama Waktu Izin</th>
@@ -19,20 +20,24 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Izin tidak masuk</td>
-                            <td>Ada keperluan keluarga yang tidak bisa ditinggalkan</td>
-                            <td>08.00-14.00</td>
-                            <td>Selasa, 13 Januari 2020</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Izin tidak masuk</td>
-                            <td>Ada keperluan keluarga yang tidak bisa ditinggalkan</td>
-                            <td>08.00-14.00</td>
-                            <td>Selasa, 13 Januari 2020</td>
+                            <?php 
+                                $index = '1';
+                                if( !empty($izin) ) :
+                                    foreach($izin as $row) : 
+                            ?>
+                            <td><?= $index ?></td>
+                            <td><?= $row['nama'] ?></td>
+                            <td><?= $row['keterangan_izin'] ?></td>
+                            <td><?= $row['alasan_izin'] ?></td>
+                            <td><?= $row['lama_waktu_izin'] ?></td>
+                            <td><?= $row['hari_tanggal'] ?></td>
                         </tr>
                     </tbody>
+                    <?php 
+                        $index++;
+                                    endforeach;
+                                endif;
+                    ?>
                 </table>
                 <hr><br>
             </div>
