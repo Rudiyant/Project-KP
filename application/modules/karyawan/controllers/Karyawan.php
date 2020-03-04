@@ -541,11 +541,11 @@ class Karyawan extends MY_Controller
 		(............................)', 1, 'C');
 		$get_xxx += $width_cell;
 		$pdf->SetXY($get_xxx, $get_yyy);
-
+		
 		$pdf->multicell(40, 6, 'Karyawan, ybs
 
 
-
+		
 		' . $karyawan['nama'], 1, 'C');
 		$get_xxx += $width_cell;
 		$pdf->SetXY($get_xxx, $get_yyy);

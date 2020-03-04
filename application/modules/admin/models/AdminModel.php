@@ -84,4 +84,26 @@ class AdminModel extends CI_Model
         $query = $this->db->query('SELECT * FROM surat_cuti s INNER JOIN karyawan k ON s.id_karyawan=k.id_karyawan')->result_array();
         return $query;
     }
+
+    public function tolak($nomorSurat)
+    {
+        $query = $this->db->query("SELECT * FROM surat_cuti s INNER JOIN karyawan k ON s.id_karyawan=k.id_karyawan WHERE nomor_surat = '$nomorSurat'")->row_array();
+        return $query;
+    }
+
+    public function dataDirektur()
+    {
+        $query = $this->db->query('SELECT * FROM direktur')->result_array();
+        return $query;
+    }
+
+    public function cariDirektur($niy){
+        $query = $this->db->query("SELECT * from karyawan where niy like '$niy' ")->row_array();
+        return $query;
+    }
+
+    public function tambahDirektur($direktur)
+    {
+        return $this->db->insert('direktur', $direktur);
+    }
 }

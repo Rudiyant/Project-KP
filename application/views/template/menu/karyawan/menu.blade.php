@@ -16,7 +16,7 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="{{base_url('karyawan/izin')}}" class="nav-link active">
+            <a href="{{base_url('karyawan/izin')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Permohonan Izin</p>
             </a>

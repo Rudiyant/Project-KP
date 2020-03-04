@@ -42,6 +42,9 @@
                         ?>
                         <a href="{{base_url('karyawan/suratCuti/' . $index1)}}" class="btn btn-primary">Cetak</a>&ensp;
                         <a href="{{base_url('karyawan/suratCuti/' . $index2)}}" class="btn btn-primary"><i class="fa fa-download"></i>Download</a>
+                    <?php elseif ($cuti['status_cuti'] == '2') : ?>
+                        <p>Permohonan cuti Anda tidak disetujui, karena </p>
+                        <?= $cuti['keterangan'] ?>
                     <?php endif ?>
                 </div>
             </div>

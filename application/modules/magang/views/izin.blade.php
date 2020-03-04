@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label>Lama Waktu Izin</label><br>
-                        <input type="text" class="form-control" id="inputLama" name="lama" placeholder="07.00-10.00">
+                        <input type="text" class="form-control" id="inputLama" name="lama" placeholder="1 Jam">
                     </div>
                     <div class="form-group">
                         <label>Hari Tanggal</label><br>

@@ -16,12 +16,12 @@ class Admin extends MY_Controller
 		$this->blade->render('admin', $data);
 	}
  
-	public function cariKaryawan() 
-	{
-		error_reporting(0);
-		$data['title'] = "Data Karyawan";
-		$this->blade->render('admin/tambahDirektur');
-	}
+	// public function cariKaryawan() 
+	// {
+	// 	error_reporting(0);
+	// 	$data['title'] = "Data Karyawan";
+	// 	$this->blade->render('admin/tambahDirektur');
+	// }
  
 	public function dataKaryawan()
 	{
@@ -29,18 +29,10 @@ class Admin extends MY_Controller
 		$data2['cari'] = $this->AdminModel->cariNiy();
 		$this->blade->render('admin/dataKaryawan', $data2);
 	}
-	
-	public function download()
-	{
-		error_reporting(0);
-		$data['title'] = "Download Surat";
-		$this->blade->render('admin/download');
-	}
 
 	public function izin()
 	{
 		$data['title'] = "Daftar Permohonan Izin";
-	
 		$data['izin'] = $this->AdminModel->dataIzin();
 
 		$this->blade->render('izin', $data);
@@ -78,36 +70,6 @@ class Admin extends MY_Controller
 		$this->blade->render('admin/direktur');
 	}
 
-	public function cetak()
-	{
-		//error_reporting(0);
-		//$id=$_GET['id_karyawan'];
-		$getData['karyawans'] = $this->AdminModel->getJoin("*", "karyawan", "surat_cuti",
-															"karyawan.id_karyawan = surat_cuti.id_karyawan
-															");
-		$this->blade->render('admin/cetak', $getData);
-	}
-
-	public function balas()
-	{
-		error_reporting(0);
-		$data['title'] = "Surat Balasan";
-		$id=$_GET['id_karyawan'];
-		$getData['surat_cutis'] = $this->AdminModel->getJoin("*", "surat_cuti", "karyawan", 
-														  "surat_cuti.id_karyawan = karyawan.id_karyawan
-														  and karyawan.id_karyawan = '$id'");
-		$this->blade->render('admin/balas', $getData);
-	}
-
-	public function direktur()
-	{
-		error_reporting(0);
-		$getData['title'] = "Daftar Direktur";
-		$getData['direkturs'] = $this->AdminModel->getData("*", "direktur");
-		$this->blade->render('admin/direktur', $getData);
-		
-	}
-
 	public function setuju()
 	{
 		$nomorSurat = $_GET['nomor_surat'];
@@ -115,7 +77,71 @@ class Admin extends MY_Controller
 		$data['cuti'] = $this->AdminModel->setuju($nomorSurat, $statusCuti);
 		$data['title'] = "Daftar Permohonan Cuti";
 		$this->blade->render('admin/cuti', $data);
-		
 	}
 
+	public function tolak()
+	{
+		$data['title'] = "Permohonan Cuti ditolak";
+		$nomorSurat = $_GET['nomor_surat'];
+		$data['cuti'] = $this->AdminModel->tolak($nomorSurat);
+
+		$this->blade->render('balas', $data);
+	}
+
+	public function alasan()
+	{
+		$nomorSurat = $_GET['nomor_surat'];
+		$statusCuti['status_cuti'] = "2";
+		$statusCuti['keterangan'] = $this->input->post('alasan');
+		$data['cuti'] = $this->AdminModel->setuju($nomorSurat, $statusCuti);
+		$data['title'] = "Daftar Permohonan Cuti";
+		$this->blade->render('admin/cuti', $data);
+	}
+
+	public function direktur(){
+		$data['title'] = "Data Direktur";
+		$data['direktur'] = $this->AdminModel->dataDirektur();
+
+		$this->blade->render('direktur', $data);
+	}
+
+	public function tambahDirektur(){
+		$data['title'] = "Tambah Data Direktur";
+		$data['kode'] = "0";
+
+		$this->blade->render('tambahDirektur', $data);
+	}
+
+	public function cariDirektur(){
+		$data['title'] = "Tambah Data Direktur";
+		$niy = $this->input->post('cari');
+		$cekNiy = $this->AdminModel->cariDirektur($niy);
+		
+		if($cekNiy == NULL){
+			$this->session->set_flashdata('niySalah', '<div style="color: red">NIY yang anda masukkan salah!</div>');
+			redirect('admin/tambahDirektur');
+		}
+
+		$data['kode'] = "1";
+		$data['direktur'] = $this->AdminModel->cariDirektur($niy);
+
+		$this->blade->render('tambahDirektur', $data);
+	}
+
+	public function tambahkan($id_karyawan){
+		$direktur = array(
+			'id_karyawan'	  	=> $id_karyawan,
+			'niy'				=> $this->input->post('niy'),
+			'nama'      		=> $this->input->post('nama'),
+			'jabatan'    		=> $this->input->post('jabatan'),
+			'divisi'  			=> $this->input->post('divisi'),
+			'status'			=> "1",
+		);
+
+		$this->AdminModel->tambahDirektur($direktur);
+		$data['title'] = "Data Direktur";
+		$data['direktur'] = $this->AdminModel->dataDirektur();
+
+		$this->blade->render('direktur', $data);
+	}
 }

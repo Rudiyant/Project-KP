@@ -16,6 +16,7 @@
                             <th scope="col">Tanggal Selesai</th>
                             <th scope="col">Mulai Aktif Kembali</th>
                             <th scope="col">Verifikasi</th>
+                            <th scope="col">Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,12 +36,15 @@
                                     <td>
                                         <div align="center">
                                             <a href="<?= base_url('admin/setuju?nomor_surat=' . $row['nomor_surat']);  ?>" class="btn btn-primary btn-xs">Disetujui</i></a>
-                                            <br><a href="<?= base_url('admin/balas?id_karyawan=' . $row['id_karyawan']);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
+                                            <br><a href="<?= base_url('admin/tolak?nomor_surat=' . $row['nomor_surat']);  ?>" class="btn btn-danger btn-xs">Ditolak</i></a>
                                         </div>
                                     </td>
                                 <?php elseif ($row['status_cuti'] == '1') : ?>
-                                    <td>Permohonan Telah Disetujui</td>
+                                    <td>Permohonan Disetujui</td>
+                                <?php elseif ($row['status_cuti'] == '2') : ?>
+                                    <td>Permohonan Ditolak</td>
                                 <?php endif ?>
+                                <td><?= $row['keterangan'] ?></td>
                             </tr>
                         <?php
                         }
