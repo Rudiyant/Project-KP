@@ -1,3 +1,10 @@
+<?php 
+  if (empty($_SESSION['nama'])) 
+  { 
+    $this->session->set_flashdata('cekLogin', '<div style="color:red">Anda harus login terlebih dahulu!</div>'); 
+    redirect('start'); 
+  }
+?>
 @layout('template/main/admin/main')
 
 @section('content')

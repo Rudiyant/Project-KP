@@ -144,7 +144,7 @@ class Karyawan extends MY_Controller
 		//Header
 		$pdf->Image($image2, 25, 4, 27);
 		$pdf->Image($image1, 165, 4, 20);
-		$pdf->Cell(0, 8, '', 0, 1,);
+		$pdf->Cell(0, 8, '', 0, 1);
 		$pdf->SetFont('Times', 'B', 14);
 		$pdf->Cell(0, 7, 'SURAT IZIN', 0, 1, 'C');
 		$pdf->SetFont('Times', '', 12);
@@ -344,14 +344,14 @@ class Karyawan extends MY_Controller
 		$get_xxx += $width_cell;
 		$pdf->SetXY($get_xxx, $get_yyy);
 
-		$pdf->Cell(0, 31, '', 0, 1,);
-		$pdf->Cell(0, 5, '___________________________________________________________________________', 0, 1,);
-		$pdf->Cell(0, 5, '', 0, 1,);
+		$pdf->Cell(0, 31, '', 0, 1);
+		$pdf->Cell(0, 5, '___________________________________________________________________________', 0, 1);
+		$pdf->Cell(0, 5, '', 0, 1);
 
 		//Header
 		$pdf->Image($image2, 25, 152, 27);
 		$pdf->Image($image1, 165, 152, 20);
-		$pdf->Cell(0, 12, '', 0, 1,);
+		$pdf->Cell(0, 12, '', 0, 1);
 		$pdf->SetFont('Times', 'B', 14);
 		$pdf->Cell(0, 7, 'SURAT IZIN', 0, 1, 'C');
 		$pdf->SetFont('Times', '', 12);
