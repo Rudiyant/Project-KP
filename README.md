@@ -3,4 +3,5 @@ Sistem Pengelola Perizinan Karyawan
 
 
 
-LINK WEBSITE HOSTING : http://perizinansinai.000webhostapp.com/
+LINK WEBSITE HOSTING : https://sitem-permohonan-izin.000webhostapp.com/
+
