@@ -38,7 +38,7 @@ class Karyawan extends MY_Controller
 		$data['welcome'] = "0";
 		$id_izin = random_string('alnum', 5);
 
-		include "tgl_indo.php";
+		// include "tgl_indo.php";
 
 		$keterangan = $this->input->post('keterangan');
 		if ($keterangan == "Ada Keperluan") {
@@ -48,14 +48,14 @@ class Karyawan extends MY_Controller
 			$keterangan = $this->input->post('lain');
 		}
 
-		$tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
-		$tglSurat = tgl_indo($tgl, true);
+		// $tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
+		// $tglSurat = tgl_indo($tgl, true);
 
 		$izin = array(
 			'id_izin'	  		=> $id_izin,
 			'keterangan_izin'   => $keterangan,
 			'alasan_izin'       => $this->input->post('alasan'),
-			'hari_tanggal'      => $tglSurat,
+			'hari_tanggal'      => $this->input->post('tanggal'),
 			'lama_waktu_izin'   => $this->input->post('lama'),
 			'status_izin'		=> "OK",
 			'id_karyawan'		=> $this->session->userdata('id'),
@@ -96,7 +96,7 @@ class Karyawan extends MY_Controller
 		$data['type'] = 'karyawan';
 		$data['welcome'] = "0";
 
-		include "tgl_indo.php";
+		// include "tgl_indo.php";
 
 		$keterangan = $this->input->post('keterangan');
 		if ($keterangan == "Ada Keperluan") {
@@ -106,14 +106,14 @@ class Karyawan extends MY_Controller
 			$keterangan = $this->input->post('lain');
 		}
 
-		$tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
-		$tglSurat = tgl_indo($tgl, true);
+		// $tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
+		// $tglSurat = tgl_indo($tgl, true);
 
 		$izin = array(
 			'id_izin'	  		=> $id_izin,
 			'keterangan_izin'   => $keterangan,
 			'alasan_izin'       => $this->input->post('alasan'),
-			'hari_tanggal'      => $tglSurat,
+			'hari_tanggal'      => $this->input->post('tanggal'),
 			'lama_waktu_izin'   => $this->input->post('lama'),
 			'status_izin'		=> "OK",
 			'id_karyawan'		=> $this->session->userdata('id'),
@@ -130,6 +130,8 @@ class Karyawan extends MY_Controller
 		$karyawan = $this->KaryawanModel->dataKaryawan($id);
 		$izin = $this->KaryawanModel->cetakIzin($id_izin);
 
+		include "tgl_indo.php";
+
 		$pdf = new FPDF('P', 'mm', 'A4');
 		// membuat halaman baru
 		$pdf->AddPage();
@@ -142,7 +144,7 @@ class Karyawan extends MY_Controller
 		$nctg = base_url('assets/dist/img/nctg.png');
 
 		//Header
-		$pdf->Image($image2, 25, 4, 27);
+		// $pdf->Image($image2, 25, 4, 27);
 		$pdf->Image($image1, 165, 4, 20);
 		$pdf->Cell(0, 8, '', 0, 1);
 		$pdf->SetFont('Times', 'B', 14);
@@ -304,8 +306,10 @@ class Karyawan extends MY_Controller
 		$pdf->cell(0, 6, $izin['alasan_izin'], 1, 1);
 
 		//Hari Tanggal
+		$tgl = date('Y-m-d', strtotime( $izin['hari_tanggal']));
+		$tglSurat = tgl_indo($tgl, true);
 		$pdf->cell(30, 6, 'Hari Tanggal', 1, 0);
-		$pdf->cell(0, 6, $izin['hari_tanggal'], 1, 1);
+		$pdf->cell(0, 6, $tglSurat, 1, 1);
 
 		//TTD
 		$get_xxx = $pdf->GetX();
@@ -349,7 +353,7 @@ class Karyawan extends MY_Controller
 		$pdf->Cell(0, 5, '', 0, 1);
 
 		//Header
-		$pdf->Image($image2, 25, 152, 27);
+		// $pdf->Image($image2, 25, 152, 27);
 		$pdf->Image($image1, 165, 152, 20);
 		$pdf->Cell(0, 12, '', 0, 1);
 		$pdf->SetFont('Times', 'B', 14);
@@ -510,8 +514,10 @@ class Karyawan extends MY_Controller
 		$pdf->cell(0, 6, $izin['alasan_izin'], 1, 1);
 
 		//Hari Tanggal
+		$tgl = date('Y-m-d', strtotime( $izin['hari_tanggal']));
+		$tglSurat = tgl_indo($tgl, true);
 		$pdf->cell(30, 6, 'Hari Tanggal', 1, 0);
-		$pdf->cell(0, 6, $izin['hari_tanggal'], 1, 1);
+		$pdf->cell(0, 6, $tglSurat, 1, 1);
 
 		//TTD
 		$get_xxx = $pdf->GetX();
@@ -575,7 +581,7 @@ class Karyawan extends MY_Controller
 		$data['type'] = 'karyawan';
 		$data['welcome'] = "0";
 
-		include "tgl_indo.php";
+		// include "tgl_indo.php";
 		include "getRomawi.php";
 
 		$bulan = date('n');
@@ -586,24 +592,24 @@ class Karyawan extends MY_Controller
 		$kode = sprintf("%02s", $noUrut);
 		$nomorSurat = $kode . $nomor;
 
-		$tglMulai = date('Y-m-d', strtotime($this->input->post('mulai')));
-		$mulai = tgl_indo($tglMulai, true);
-		$tglSelesai = date('Y-m-d', strtotime($this->input->post('selesai')));
-		$selesai = tgl_indo($tglSelesai, true);
-		$tglMasuk = date('Y-m-d', strtotime($this->input->post('masuk')));
-		$masuk = tgl_indo($tglMasuk, true);
+		// $tglMulai = date('Y-m-d', strtotime($this->input->post('mulai')));
+		// $mulai = tgl_indo($tglMulai, true);
+		// $tglSelesai = date('Y-m-d', strtotime($this->input->post('selesai')));
+		// $selesai = tgl_indo($tglSelesai, true);
+		// $tglMasuk = date('Y-m-d', strtotime($this->input->post('masuk')));
+		// $masuk = tgl_indo($tglMasuk, true);
 		$tgl = date('Y-m-d');
-		$tglSurat = tgl_indo($tgl, false);
+		// $tglSurat = tgl_indo($tgl, false);
 
 		$cuti = array(
 			'nomor_surat'		=> $nomorSurat,
 			'alasan_cuti'       => $this->input->post('alasan'),
-			'hari_tgl_mulai'    => $mulai,
-			'hari_tgl_selesai'  => $selesai,
-			'hari_tgl_masuk'    => $masuk,
+			'hari_tgl_mulai'    => $this->input->post('mulai'),
+			'hari_tgl_selesai'  => $this->input->post('selesai'),
+			'hari_tgl_masuk'    => $this->input->post('masuk'),
 			'tujuan_cuti'	    => $this->input->post('tujuan'),
 			'status_cuti'		=> "0",
-			'tanggal'			=> $tglSurat,
+			'tanggal'			=> $tgl,
 			'id_karyawan'		=> $this->session->userdata('id'),
 			'alamat_karyawan'	=> $this->input->post('alamat'),
 		);
@@ -647,27 +653,27 @@ class Karyawan extends MY_Controller
 		$data['type'] = 'karyawan';
 		$data['welcome'] = "0";
 
-		include "tgl_indo.php";
+		// include "tgl_indo.php";
 		$nomorSurat = $this->session->userdata('nomor_surat');
 
-		$tglMulai = date('Y-m-d', strtotime($this->input->post('mulai')));
-		$mulai = tgl_indo($tglMulai, true);
-		$tglSelesai = date('Y-m-d', strtotime($this->input->post('selesai')));
-		$selesai = tgl_indo($tglSelesai, true);
-		$tglMasuk = date('Y-m-d', strtotime($this->input->post('masuk')));
-		$masuk = tgl_indo($tglMasuk, true);
+		// $tglMulai = date('Y-m-d', strtotime($this->input->post('mulai')));
+		// $mulai = tgl_indo($tglMulai, true);
+		// $tglSelesai = date('Y-m-d', strtotime($this->input->post('selesai')));
+		// $selesai = tgl_indo($tglSelesai, true);
+		// $tglMasuk = date('Y-m-d', strtotime($this->input->post('masuk')));
+		// $masuk = tgl_indo($tglMasuk, true);
 		$tgl = date('Y-m-d');
-		$tglSurat = tgl_indo($tgl, false);
+		// $tglSurat = tgl_indo($tgl, false);
 
 		$cuti = array(
 			'nomor_surat'		=> $nomorSurat,
 			'alasan_cuti'       => $this->input->post('alasan'),
-			'hari_tgl_mulai'    => $mulai,
-			'hari_tgl_selesai'  => $selesai,
-			'hari_tgl_masuk'    => $masuk,
+			'hari_tgl_mulai'    => $this->input->post('mulai'),
+			'hari_tgl_selesai'  => $this->input->post('selesai'),
+			'hari_tgl_masuk'    => $this->input->post('masuk'),
 			'tujuan_cuti'	    => $this->input->post('tujuan'),
 			'status_cuti'		=> "0",
-			'tanggal'			=> $tglSurat,
+			'tanggal'			=> $tgl,
 			'id_karyawan'		=> $this->session->userdata('id'),
 			'alamat_karyawan'	=> $this->input->post('alamat'),
 		);
@@ -683,6 +689,16 @@ class Karyawan extends MY_Controller
 		$nomorSurat = $this->session->userdata('nomor_surat');
 		$karyawan = $this->KaryawanModel->dataKaryawan($id);
 		$cuti = $this->KaryawanModel->statusCuti($nomorSurat);
+
+		include "tgl_indo.php";
+		$tglMulai = date('Y-m-d', strtotime($cuti['hari_tgl_mulai']));
+		$mulai = tgl_indo($tglMulai, true);
+		$tglSelesai = date('Y-m-d', strtotime($cuti['hari_tgl_selesai']));
+		$selesai = tgl_indo($tglSelesai, true);
+		$tglMasuk = date('Y-m-d', strtotime($cuti['hari_tgl_masuk']));
+		$masuk = tgl_indo($tglMasuk, true);
+		$tgl = date('Y-m-d', strtotime($cuti['tanggal']));
+		$tglSurat = tgl_indo($tgl, false);
 
 		$pdf = new FPDF('P', 'mm', 'A4');
 		// membuat halaman baru
@@ -726,17 +742,17 @@ class Karyawan extends MY_Controller
 		$pdf->Ln(3);
 
 		$pdf->Cell(0, 6, 'Bermaksud mengajukan ijin cuti '.$cuti['alasan_cuti'].'.', 0, 1);
-		$pdf->Cell(75, 6, 'Dimulai sejak hari '.$cuti['hari_tgl_mulai'], 0, 0);
-		$pdf->Cell(79, 6, 'dan selesai pada hari '.$cuti['hari_tgl_selesai'], 0, 0);
+		$pdf->Cell(75, 6, 'Dimulai sejak hari '.$mulai, 0, 0);
+		$pdf->Cell(79, 6, 'dan selesai pada hari '.$selesai, 0, 0);
 		$pdf->Cell(0,6, 'sehingga akan', 0,1);
-		$pdf->Cell(79, 6, 'mulai aktif kembali pada hari '.$cuti['hari_tgl_masuk'].'.', 0, 0);
+		$pdf->Cell(79, 6, 'mulai aktif kembali pada hari '.$masuk.'.', 0, 0);
 		$pdf->Ln(10);
 
 		$pdf->MultiCell(0, 6, 'Demikian surat izin cuti ini saya ajukan. Atas perhatian dan dikabulkannya, saya ucapkan banyak terima
 kasih.', 0);
 
 		$pdf->Ln(20);
-		$pdf->Cell(0,6, 'Sleman, '.$cuti['tanggal'], 0,1);
+		$pdf->Cell(0,6, 'Sleman, '.$tglSurat, 0,1);
 		$pdf->Cell(140,6, 'Pemohon,', 0,0);
 		$pdf->Cell(0,6, 'Direktur,', 0,0);
 		$pdf->Ln(20);

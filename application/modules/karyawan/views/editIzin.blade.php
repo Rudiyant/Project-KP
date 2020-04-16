@@ -13,7 +13,7 @@
     </div>
     <div class="col-lg-6">
         <div class="card card-primary card-outline">
-            <form class="card-body" method="POST" action="{{base_url('karyawan/update/' . $izin['id_izin'])}}">
+            <form class="card-body" method="POST" onsubmit="return validasi_izin(this)" action="{{base_url('karyawan/update/' . $izin['id_izin'])}}">
                 <div class="container">
                     <small>Data diri</small>
                     <hr>
@@ -67,20 +67,31 @@
                         <?php echo ($lain == 'Lain-lain') ? 'checked' : '' ?>>&ensp; Lain-lain</p>
                         <div style="display:none" id="formLain">
                             <textarea type="text" class="form-control" name="lain" rows="2">Lain-lain, <?= $isiLain ?></textarea>
-                            <br>
+                        </div>
+                        <div style="display:none" id="pesan-keterangan">
+                            <span style="color: red">Keterangan harus diisi!</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Alasan</label><br>
                         <textarea type="text" class="form-control" name="alasan" rows="3"><?= $izin['alasan_izin'] ?></textarea>
+                        <div style="display:none" id="pesan-alasan">
+                            <span style="color: red">Alasan harus diisi!</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Lama Waktu Izin</label><br>
                         <input type="text" class="form-control" id="inputLama" name="lama" value="<?= $izin['lama_waktu_izin'] ?>">
+                        <div style="display:none" id="pesan-waktu">
+                            <span style="color: red">Lama waktu izin harus diisi!</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Hari Tanggal</label><br>
                         <input type="date" class="form-control" id="inputTanggal" name="tanggal" value="<?= $izin['hari_tanggal'] ?>">
+                        <div style="display:none" id="pesan-hari">
+                            <span style="color: red">Hari Tanggal harus diisi!</span>
+                        </div>
                     </div>
                     <br>
                     <div align="center">

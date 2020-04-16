@@ -38,7 +38,7 @@ class Magang extends MY_Controller
 		$data['welcome'] = "0";
 		$id_izin = random_string('alnum', 5);
 
-		include "tgl_indo.php";
+		// include "tgl_indo.php";
 
 		$keterangan = $this->input->post('keterangan');
 		if ($keterangan == "Ada Keperluan") {
@@ -48,14 +48,14 @@ class Magang extends MY_Controller
 			$keterangan = $this->input->post('lain');
 		}
 
-		$tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
-		$tglSurat = tgl_indo($tgl, true);
+		// $tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
+		// $tglSurat = tgl_indo($tgl, true);
 
 		$izin = array(
 			'id_izin'	  		=> $id_izin,
 			'keterangan_izin'   => $keterangan,
 			'alasan_izin'       => $this->input->post('alasan'),
-			'hari_tanggal'      => $tglSurat,
+			'hari_tanggal'      => $this->input->post('tanggal'),
 			'lama_waktu_izin'   => $this->input->post('lama'),
 			'status_izin'		=> "OK",
 			'id_karyawan'		=> $this->session->userdata('id'),
@@ -96,10 +96,10 @@ class Magang extends MY_Controller
 		$data['type'] = 'magang';
 		$data['welcome'] = "0";
 
-		include "tgl_indo.php";
+		// include "tgl_indo.php";
 
-		$tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
-		$tglSurat = tgl_indo($tgl, true);
+		// $tgl = date('Y-m-d', strtotime($this->input->post('tanggal')));
+		// $tglSurat = tgl_indo($tgl, true);
 
 
 		$keterangan = $this->input->post('keterangan');
@@ -114,7 +114,7 @@ class Magang extends MY_Controller
 			'id_izin'			=> $id_izin,
 			'keterangan_izin'   => $keterangan,
 			'alasan_izin'       => $this->input->post('alasan'),
-			'hari_tanggal'      => $tglSurat,
+			'hari_tanggal'      => $this->input->post('tanggal'),
 			'lama_waktu_izin'   => $this->input->post('lama'),
 			'status_izin'		=> "OK",
 			'id_karyawan'		=> $this->session->userdata('id'),
@@ -131,6 +131,11 @@ class Magang extends MY_Controller
 		$karyawan = $this->MagangModel->dataKaryawan($id);
 		$izin = $this->MagangModel->cetakIzin($id_izin);
 
+		include "tgl_indo.php";
+
+		$tgl = date('Y-m-d', strtotime($izin['hari_tanggal']));
+		$tglSurat = tgl_indo($tgl, true);
+
 		$pdf = new FPDF('P', 'mm', 'A4');
 		// membuat halaman baru
 		$pdf->AddPage();
@@ -143,7 +148,7 @@ class Magang extends MY_Controller
 		$nctg = base_url('assets/dist/img/nctg.png');
 
 		//Header
-		$pdf->Image($image2, 25, 4, 27);
+		// $pdf->Image($image2, 25, 4, 27);
 		$pdf->Image($image1, 165, 4, 20);
 		$pdf->Cell(0, 8, '', 0, 1,);
 		$pdf->SetFont('Times', 'B', 14);
@@ -306,7 +311,7 @@ class Magang extends MY_Controller
 
 		//Hari Tanggal
 		$pdf->cell(30, 6, 'Hari Tanggal', 1, 0);
-		$pdf->cell(0, 6, $izin['hari_tanggal'], 1, 1);
+		$pdf->cell(0, 6, $tglSurat, 1, 1);
 
 		//TTD
 		$get_xxx = $pdf->GetX();
@@ -350,7 +355,7 @@ class Magang extends MY_Controller
 		$pdf->Cell(0, 5, '', 0, 1,);
 
 		//Header
-		$pdf->Image($image2, 25, 152, 27);
+		// $pdf->Image($image2, 25, 152, 27);
 		$pdf->Image($image1, 165, 152, 20);
 		$pdf->Cell(0, 12, '', 0, 1,);
 		$pdf->SetFont('Times', 'B', 14);
@@ -512,7 +517,7 @@ class Magang extends MY_Controller
 
 		//Hari Tanggal
 		$pdf->cell(30, 6, 'Hari Tanggal', 1, 0);
-		$pdf->cell(0, 6, $izin['hari_tanggal'], 1, 1);
+		$pdf->cell(0, 6, $tglSurat, 1, 1);
 
 		//TTD
 		$get_xxx = $pdf->GetX();

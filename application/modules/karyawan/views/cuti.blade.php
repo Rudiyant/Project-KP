@@ -1,9 +1,8 @@
-<?php 
-  if (empty($_SESSION['nama'])) 
-  { 
-    $this->session->set_flashdata('cekLogin', '<div style="color:red">Anda harus login terlebih dahulu!</div>'); 
-    redirect('start'); 
-  }
+<?php
+if (empty($_SESSION['nama'])) {
+    $this->session->set_flashdata('cekLogin', '<div style="color:red">Anda harus login terlebih dahulu!</div>');
+    redirect('start');
+}
 ?>
 @layout('template/main/user/main')
 
@@ -13,7 +12,7 @@
     </div>
     <div class="col-lg-6">
         <div class="card card-primary card-outline">
-            <form class="card-body" method="POST" action="{{base_url('karyawan/buatSuratCuti')}}">
+            <form class="card-body" method="POST" onsubmit="return validasi_cuti(this)" action="{{base_url('karyawan/buatSuratCuti')}}">
                 <div class="container">
                     <small>Data diri</small>
                     <hr>
@@ -28,6 +27,9 @@
                     <div class="form-group">
                         <label>Alamat</label><br>
                         <textarea type="text" class="form-control" name="alamat" rows="3"></textarea>
+                        <div style="display:none" id="pesan-alamat">
+                            <span style="color: red">Alamat harus diisi!</span>
+                        </div>
                     </div>
                     <br>
                     <small>Tujuan Surat</small>
@@ -36,6 +38,9 @@
                         <label>Ditujukan Kepada</label><br>
                         <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Operasional Yayasan Sinai Indonesia">&ensp; Direktur Operasional Yayasan Sinai Indonesia</p>
                         <p class="radio-inline"><input type="radio" name="tujuan" value="Direktur Sekolah Teladan">&ensp; Direktur Sekolah Teladan</p>
+                        <div style="display:none" id="pesan-tujuan">
+                            <span style="color: red">Tujuan harus diisi!</span>
+                        </div>
                     </div>
                     <br>
                     <small>Keterangan Cuti</small>
@@ -43,19 +48,29 @@
                     <div class="form-group">
                         <label>Alasan</label><br>
                         <textarea type="text" class="form-control" name="alasan" rows="3"></textarea>
+                        <div style="display:none" id="pesan-alasan">
+                            <span style="color: red">Alasan harus diisi!</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Tanggal Mulai Cuti</label><br>
                         <input type="date" class="form-control" id="inputMulai" name="mulai">
+                        <div style="display:none" id="pesan-mulai">
+                            <span style="color: red">Tanggal mulai cuti harus diisi!</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Tanggal Selesai Cuti</label><br>
                         <input type="date" class="form-control" id="inputSelesai" name="selesai">
+                        <div style="display:none" id="pesan-selesai">
+                            <span style="color: red">Tanggal selesai cuti harus diisi!</span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Mulai Aktif Kembali</label><br>
-                        <div class="form-row">
-                            <input type="date" class="form-control" id="inputHari" name="masuk">
+                        <input type="date" class="form-control" id="inputMasuk" name="masuk">
+                        <div style="display:none" id="pesan-masuk">
+                            <span style="color: red">Tanggal masuk kembali harus diisi!</span>
                         </div>
                     </div>
                     <br>

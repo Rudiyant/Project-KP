@@ -116,6 +116,110 @@
       });
     });
   </script>
+  <script type="text/javascript">
+    function validasi_izin(form) {
+      $("#pesan-keterangan, #pesan-alasan, #pesan-lama, #pesan-hari").hide();
+
+      function check_radio(radio) {
+        // memeriksa apakah radio button sudah ada yang dipilih
+        for (i = 0; i < radio.length; i++) {
+          if (radio[i].checked === true) {
+            return radio[i].value;
+          }
+        }
+        return false;
+      }
+      var radio_val = check_radio(form.keterangan);
+      if (radio_val === false) {
+        alert("Anda harus mengisi semua data!");
+        $("#pesan-keterangan").show();
+        return false;
+      }
+      if (form.alasan.value == "") {
+        alert("Anda harus mengisi semua data!");
+        form.alasan.focus();
+        $("#pesan-alasan").show();
+        return (false);
+      }
+      if (form.lama.value == "") {
+        alert("Anda harus mengisi semua data!");
+        form.lama.focus();
+        $("#pesan-waktu").show();;
+        return (false);
+      }
+
+      function isValidDate(d) {
+        return !isNaN((new Date(d)).getTime());
+      }
+      var tgl = document.getElementById('inputTanggal').value;
+      if (!isValidDate(tgl)) {
+        alert("Anda harus mengisi semua data!");
+        form.tanggal.focus();
+        $("#pesan-hari").show();;
+        return false;
+      }
+
+      return (true);
+    }
+  </script>
+  <script type="text/javascript">
+    function validasi_cuti(form) {
+      $("#pesan-alamat, #pesan-alasan, #pesan-tujuan, #pesan-mulai, #pesan-selesai, #pesan-masuk").hide();
+      if (form.alamat.value == "") {
+        alert("Anda harus mengisi semua data!");
+        form.alamat.focus();
+        $("#pesan-alamat").show();
+        return (false);
+      }
+
+      function check_radio(radio) {
+        // memeriksa apakah radio button sudah ada yang dipilih
+        for (i = 0; i < radio.length; i++) {
+          if (radio[i].checked === true) {
+            return radio[i].value;
+          }
+        }
+        return false;
+      }
+      var radio_val = check_radio(form.tujuan);
+      if (radio_val === false) {
+        alert("Anda harus mengisi semua data!");
+        $("#pesan-tujuan").show();
+        return false;
+      }
+      if (form.alasan.value == "") {
+        alert("Anda harus mengisi semua data!");
+        form.alasan.focus();
+        $("#pesan-alasan").show();
+        return (false);
+      }
+      function isValidDate(d) {
+        return !isNaN((new Date(d)).getTime());
+      }
+      var tglMulai = document.getElementById('inputMulai').value;
+      var tglSelesai = document.getElementById('inputSelesai').value;
+      var tglMasuk = document.getElementById('inputMasuk').value;
+      if (!isValidDate(tglMulai)) {
+        alert("Anda harus mengisi semua data!");
+        form.mulai.focus();
+        $("#pesan-mulai").show();;
+        return false;
+      }
+      if (!isValidDate(tglSelesai)) {
+        alert("Anda harus mengisi semua data!");
+        form.selesai.focus();
+        $("#pesan-selesai").show();;
+        return false;
+      }
+      if (!isValidDate(tglMasuk)) {
+        alert("Anda harus mengisi semua data!");
+        form.masuk.focus();
+        $("#pesan-masuk").show();;
+        return false;
+      }
+      return (true);
+    }
+  </script>
   @yield('scripts-js')
 </body>
 

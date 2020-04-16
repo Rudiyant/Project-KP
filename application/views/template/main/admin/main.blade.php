@@ -15,8 +15,9 @@
   <link rel="stylesheet" href="{{base_url('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <link rel="stylesheet" href="{{base_url('assets/plugins/daterangepicker/daterangepicker.css')}}">
   <link rel="stylesheet" href="{{base_url('assets/plugins/summernote/summernote-bs4.css')}}">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <link rel="shortcut icon" href="<?= base_url('assets/dist/img/Teladan.png');?>">
+  <link rel="shortcut icon" href="<?= base_url('assets/dist/img/Teladan.png'); ?>">
   <!-- <link rel="stylesheet" href="{{base_url('assets/DataTables/datatables.min.css')}}"> -->
   @yield('scripts-css')
   <!-- PANGGIL UNTUK INJEK CSS KE TEMPAT INI -->
@@ -102,6 +103,8 @@
       });
     });
   </script>
+  <script src="{{base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+  
   @yield('scripts-js')
 </body>
 
